@@ -5,7 +5,7 @@ const indicators = [
         name: "布林带通道",
         category: ["trend", "volatility"],
         description: "经典波动率通道指标，识别超买超卖区域",
-        image: "assets/images/bollinger.jpg",
+        image: "bollinger.png",
         download: "assets/downloads/bollinger.zip",
         content: `<h3>使用说明</h3>
                  <p>1. 价格触及上轨时可能出现回调</p>
@@ -17,7 +17,7 @@ const indicators = [
         name: "MACD指标",
         category: ["trend", "oscillator"],
         description: "趋势跟踪动量指标，识别买卖信号",
-        image: "assets/images/macd.jpg",
+        image: "macd.png",
         download: "assets/downloads/macd.zip",
         content: `<h3>使用技巧</h3>
                  <p>1. 观察快慢线交叉</p>
