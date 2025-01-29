@@ -1,28 +1,109 @@
 [
     {
         "id": 1,
-        "name": "MA指标",
+        "name": "Yuanshan-MA-001",
         "category": ["trend"],
-        "description": "趋势跟踪量指标，识别买卖信号",
-        "image": "assets/ma.png",
+        "description": "均线交叉提示箭头",
+        "image": "assets/yuanshan-ma-001.png",
         "download": "assets/downloads/ma.zip",
         "content": "<h3>编号：Yuanshan-MA-104</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注K线颜色变化</p><p>3.多头趋势回踩做多，空头趋势反弹做空</p><p>&nbsp</p><h3>支持:</h3><p>1. MA/EMA/WMA/SMMA/LWMA/DEMA等</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 2,
-        "name": "MACD指标",
+        "name": "Yuanshan-MA-002",
         "category": ["trend", "oscillator"],
-        "description": "趋势跟踪动量指标，识别买卖信号",
-        "image": "assets/macd.png",
+        "description": "均线走强/走弱变色+提示",
+        "image": "assets/yuanshan-ma-002.png",
         "download": "assets/downloads/macd.zip",
         "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
     },
     {
         "id": 3,
-        "name": "布林带通道",
+        "name": "Yuanshan-MA-101",
+        "category": ["trend", "oscillator"],
+        "description": "均线走强/走弱变色+提示+K线变色",
+        "image": "assets/yuanshan-ma-101.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 4,
+        "name": "Yuanshan-MA-102",
+        "category": ["trend", "oscillator"],
+        "description": "一阳/阴穿三线提示+变色",
+        "image": "assets/yuanshan-ma-102.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 5,
+        "name": "Yuanshan-MA-103",
+        "category": ["trend", "oscillator"],
+        "description": "K线在均线之上/之下，K线变色",
+        "image": "assets/yuanshan-ma-103.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 6,
+        "name": "Yuanshan-MA-104",
+        "category": ["trend", "oscillator"],
+        "description": "快线在慢线之上/之下，K线变色",
+        "image": "assets/yuanshan-ma-104.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 7,
+        "name": "Yuanshan-MA-105",
+        "category": ["trend", "oscillator"],
+        "description": "飘带，均线之间填充透明色",
+        "image": "assets/yuanshan-ma-105.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 8,
+        "name": "Yuanshan-MA-201",
+        "category": ["trend", "oscillator"],
+        "description": "趋势带，识别多空强弱",
+        "image": "assets/yuanshan-ma-201.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 9,
+        "name": "Yuanshan-MA-101",
+        "category": ["trend", "oscillator"],
+        "description": "趋势跟踪动量指标，识别买卖信号",
+        "image": "assets/yuanshan-ma-001.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 10,
+        "name": "Yuanshan-MA-101",
+        "category": ["trend", "oscillator"],
+        "description": "趋势跟踪动量指标，识别买卖信号",
+        "image": "assets/yuanshan-ma-001.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 11,
+        "name": "Yuanshan-MACD-001",
+        "category": ["trend", "oscillator"],
+        "description": "趋势跟踪动量指标，识别买卖信号",
+        "image": "assets/yuanshan-ma-001.png",
+        "download": "assets/downloads/macd.zip",
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+    },
+    {
+        "id": 12,
+        "name": "Yuanshan-Channel-102",
         "category": ["trend", "volatility"],
         "description": "经典波动率通道指标，识别盘整/趋势状态",
-        "image": "assets/bollinger.png",
+        "image": "assets/yuanshan-ma-001.png",
         "download": "assets/downloads/bollinger.zip",
         "content": "<h3>编号：Yuanshan-Channel-102</h3><h3>使用说明</h3><p>1. 价格触及上/下轨时可能出现回调</p><p>2. 上升时触及粉色区域做多；下跌时触及蓝色区域做空</p><p>3. 背景白色为震荡状态</p><p>&nbsp</p><h3>支持:</h3><p>1. 布林带周期自定义</p><p>2. 布林带上/中/下轨道颜色自定义</p><p>3. 布林带背景颜色自定义</p>"
     }
