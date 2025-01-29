@@ -310,26 +310,28 @@ body {
 /* 挂件基础样式 */
 #floatingWidget {
     position: fixed;
-    top: 50%; /* 垂直居中 */
+    bottom: 20px; /* 距离底部的距离 */
     right: 20px; /* 距离右边界的距离 */
-    transform: translateY(-50%); /* 精确垂直居中 */
     width: 64px; /* 设置宽度为64px */
-    height: 64px; /* 设置高度为64px */
     cursor: pointer;
     z-index: 1000; /* 确保它在大多数其他内容之上 */
+    text-align: center; /* 文字居中 */
 }
 
 /* 挂件图标样式 */
 #widgetIcon {
     width: 100%; /* 图标宽度占满容器 */
-    height: 100%; /* 图标高度占满容器 */
-    object-fit: cover; /* 保证图片不失真 */
+    height: auto; /* 自动高度，以保持比例 */
+    max-height: 64px; /* 最大高度为64px */
+    object-fit: contain; /* 保证图片不失真 */
+    display: block; /* 确保没有额外的空间 */
+    margin: 0 auto; /* 水平居中 */
 }
 
-/* 强制图标尺寸为64x64像素 */
-#floatingWidget #widgetIcon {
-    width: 64px;
-    height: 64px;
+/* 挂件文字样式 */
+#widgetText {
+    font-size: 12px; /* 根据需要调整字体大小 */
+    margin-top: 5px; /* 文字与图标之间的间距 */
 }
 
 /* 二维码显示样式 */
@@ -344,36 +346,11 @@ body {
     display: none; /* 默认隐藏 */
 }
 
-.qr-code-image {
-    max-width: 100%;
-    height: auto;
-}
-
 /* 当悬停在挂件上时，二维码图片放大 */
 #floatingWidget:hover #qrCode {
     display: block;
     transform: scale(1.5); /* 放大倍数，可以根据需要调整 */
     transition: transform 0.3s ease-in-out; /* 平滑过渡效果 */
-}
-
-/* 响应式设计：针对较小的屏幕优化二维码显示 */
-@media (max-width: 600px) {
-    #qrCode {
-        position: fixed;
-        top: 10%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: white;
-        padding: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,.1);
-        z-index: 1000;
-        display: none;
-    }
-
-    .qr-code-image {
-        max-width: 90%;
-        height: auto;
-    }
 }
 
 /* 模态框基础样式 */
