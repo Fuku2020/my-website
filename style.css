@@ -451,6 +451,16 @@ body {
     }
 }
 
+/* 滚动动画 */
+@keyframes scroll {
+    0% {
+        transform: translateX(0); /* 从初始位置开始 */
+    }
+    100% {
+        transform: translateX(-66.66%); /* 滚动到最后一个广告项 */
+    }
+}
+
 /* 新增导航样式 */
 .nav-container {
     display: flex;
