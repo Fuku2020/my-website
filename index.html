@@ -8,26 +8,27 @@
 </head>
 <body>
     <div class="container">
-        <!-- 头部 -->
-        <div class="header">
+        <!-- 语义化头部 -->
+        <header class="header">
             <h1>Trading·远山资源中心</h1>
             <input type="text" class="search-box" placeholder="搜索指标名称或分类...">
-            <div class="category-nav">
+            <!-- 导航语义化 -->
+            <nav class="category-nav">
                 <button class="category-btn active" data-category="all">全部</button>
                 <button class="category-btn" data-category="trend">趋势指标</button>
                 <button class="category-btn" data-category="oscillator">震荡指标</button>
                 <button class="category-btn" data-category="volatility">波动率指标</button>
-            </div>
-        </div>
+            </nav>
+        </header>
 
-        <!-- 指标列表 -->
-        <div class="indicator-grid" id="indicatorContainer">
-            <!-- 指标卡片通过JavaScript动态生成 -->
-        </div>
+        <!-- 主内容区 -->
+        <main class="indicator-grid" id="indicatorContainer">
+            <!-- 动态生成卡片 -->
+        </main>
 
-        <!-- 详情页 (初始隐藏) -->
+        <!-- 详情页 -->
         <div id="detailPage" style="display: none;">
-            <a href="javascript:void(0)" class="back-btn" onclick="showListPage()">返回列表</a>
+            <a href="javascript:void(0)" class="back-btn" onclick="showListPage()">↩ 返回列表</a>
             <div class="indicator-detail">
                 <h2 id="detailTitle"></h2>
                 <img id="detailImage" src="" alt="" class="indicator-thumbnail">
