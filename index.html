@@ -40,7 +40,18 @@
         </main>
         
         <!-- 添加分页按钮容器 -->
-        <div id="paginationContainer" class="pagination-container"></div>
+        <div id="paginationContainer" class="pagination-container"></div>>
+
+        <!-- 挂件和二维码的容器 -->
+        <div id="floatingWidget">
+            <!-- 默认图标，例如微信卡片 -->
+            <img id="widgetIcon" src="assets/wechat.png" alt="Widget Icon"/>
+            <div id="widgetText">联系客服</div>
+            <div id="qrCode" style="display:none;">
+                <!-- 替换为你的二维码图片路径 -->
+                <img src="assets/ewm.png" alt="QR Code"/>
+            </div>
+        </div>
 
         <div id="detailPage" style="display: none;">
             <a href="javascript:void(0)" class="back-btn" onclick="showListPage()">↩ 返回列表</a>
