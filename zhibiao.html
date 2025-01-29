@@ -1,3 +1,4 @@
+<!-- zhibiao.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5,43 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>指标大全</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 新增样式：铺满边框 */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        .container {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .header {
-            flex-shrink: 0;
-        }
-        .indicator-grid {
-            flex-grow: 1;
-            overflow-y: auto; /* 允许滚动 */
-            padding: 20px;
-        }
-        .indicator-card {
-            width: 100%; /* 卡片宽度铺满 */
-            max-width: 400px; /* 限制最大宽度 */
-            margin: 0 auto 20px; /* 居中显示 */
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1>指标大全</h1>
-            <a href="index.html" class="back-btn">← 返回首页</a>
         </header>
 
-        <main class="indicator-grid" id="indicatorContainer">
-            <!-- 动态生成卡片区域 -->
+        <main class="zhibiao-grid" id="zhibiaoContainer">
+            <!-- 动态生成卡片 -->
         </main>
     </div>
 
