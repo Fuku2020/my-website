@@ -336,12 +336,17 @@ body {
 #qrCode {
     position: absolute;
     top: -120%; /* 相对于挂件的位置，可能需要根据实际情况调整 */
-    right: 200px; /* 距离挂件的距离 */
+    right: 60px; /* 距离挂件的距离 */
     background-color: white;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     z-index: 1000;
     display: none; /* 默认隐藏 */
+}
+
+.qr-code-image {
+    max-width: 100%;
+    height: auto;
 }
 
 /* 当悬停在挂件上时，二维码图片放大 */
