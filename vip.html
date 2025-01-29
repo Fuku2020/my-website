@@ -7,6 +7,25 @@
     <title>VIP会员中心 - 远山交易</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 节省金额提示样式 */
+        .savings-tag {
+            font-size: 0.45em;
+            color: hwb(193 40% 53%);
+            margin-top: 5px;
+            display: none; /* 默认隐藏 */
+        }
+        .savings-tag.show {
+            display: block;
+        }
+        .savings-icon {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            border-radius: 10px;
+            padding: 2px 8px;
+            margin-right: 5px;
+        }
+
         /* 新增付费周期切换样式 */
         .billing-toggle {
         display: flex;
@@ -16,7 +35,7 @@
         /* 添加z-index确保按钮不被覆盖 */
         z-index: 1;
         position: relative;
-    }
+        }
 
         .billing-btn {
             padding: 10px 25px;
@@ -172,6 +191,7 @@
                 <div class="vip-badge">私域专享</div>
                 <h2>VIP会员</h2>
                 <div class="price-tag" 
+                    data-free="true"
                     data-quarterly="终身免费"
                     data-semiannually="终身免费"
                     data-annually="终身免费">
@@ -190,11 +210,15 @@
                 <div class="vip-badge">最受欢迎</div>
                 <h2>VVIP会员</h2>
                 <div class="price-tag"
-                    data-quarterly="$49.9/季"
-                    data-semiannually="$89.9/半年"
-                    data-annually="$159.9/年">
+                    data-quarterly="49.9/季"
+                    data-semiannually="88.8/半年"
+                    data-annually="139.9/年">
                     <span class="price-display">$49.9</span>
                     <span class="price-period">/季</span>
+                    <div class="savings-tag"> <!-- 新增节省提示 -->
+                        <span class="savings-icon">省</span>
+                        <span class="savings-amount"></span>
+                    </div>
                 </div>
                 <ul class="privilege-list">
                     <li>所有普通指标</li>
@@ -210,11 +234,15 @@
                 <div class="vip-badge">专业交易</div>
                 <h2>SVIP会员</h2>
                 <div class="price-tag"
-                    data-quarterly="$89.9/季"
-                    data-semiannually="$159.9/半年"
-                    data-annually="$299.9/年">
+                    data-quarterly="89.9/季"
+                    data-semiannually="149.9/半年"
+                    data-annually="279.9/年">
                     <span class="price-display">$89.9</span>
                     <span class="price-period">/季</span>
+                    <div class="savings-tag"> <!-- 新增节省提示 -->
+                        <span class="savings-icon">省</span>
+                        <span class="savings-amount"></span>
+                    </div>
                 </div>
                 <ul class="privilege-list">
                     <li>每月10个VIP指标</li>
@@ -230,11 +258,15 @@
                 <div class="vip-badge">职业交易</div>
                 <h2>SVIP-PRO</h2>
                 <div class="price-tag"
-                    data-quarterly="$149.9/季"
-                    data-semiannually="$269.9/半年"
-                    data-annually="$499.9/年">
+                    data-quarterly="149.9/季"
+                    data-semiannually="249.8/半年"
+                    data-annually="449.9/年">
                     <span class="price-display">$149.9</span>
                     <span class="price-period">/季</span>
+                    <div class="savings-tag"> <!-- 新增节省提示 -->
+                        <span class="savings-icon">省</span>
+                        <span class="savings-amount"></span>
+                    </div>
                 </div>
                 <ul class="privilege-list">
                     <li>全部指标无限制访问</li>
@@ -297,10 +329,9 @@
         <div class="indicator-detail">
             <h2>升级指南</h2>
             <div class="privilege-list">
-                <li>VIP会员：联系客服免费开通（限私域用户）</li>
-                <li>在线支付升级：支持支付宝/微信/PayPal</li>
-                <li>企业用户：支持对公转账（联系客服）</li>
-                <li>续费优惠：提前续费享9折优惠</li>
+                <li>VIP会员：添加官方微信客服，免费开通VIP权限</li>
+                <li>在线支付：支持支付宝/微信/USDT，请通过官方微信客服进行支付</li>
+                <li>续费优惠：提前续费享9.5折优惠</li>
             </div>
             <button class="download-btn" onclick="openSection('contact.html')">联系客服</button>
         </div>
@@ -309,7 +340,8 @@
     </div>
     
     <script>
-        // 新增付费周期切换逻辑
+        
+        // 合并后的changeBillingPeriod函数
         function changeBillingPeriod(period) {
             // 切换按钮状态
             document.querySelectorAll('.billing-btn').forEach(btn => {
@@ -319,21 +351,48 @@
 
             // 更新所有价格显示
             document.querySelectorAll('.price-tag').forEach(priceTag => {
+                // 跳过免费会员
+                if(priceTag.dataset.quarterly.includes("终身免费")) return;
+
                 const priceDisplay = priceTag.querySelector('.price-display');
                 const periodDisplay = priceTag.querySelector('.price-period');
                 const [price, unit] = priceTag.dataset[period].split('/');
                 
-                priceDisplay.textContent = price;
+                // 更新价格显示
+                priceDisplay.textContent = `$${price}`;
                 if(periodDisplay) periodDisplay.textContent = `/${unit}`;
-            });
 
-            // 更新对比表（需要为表格添加类似的数据属性）
-            document.querySelectorAll('.comparison-table td:nth-child(2)').forEach(td => {
-                // 根据实际数据结构更新对比表价格
-                // 这里需要根据具体表格结构调整更新逻辑
+                // 计算节省金额
+                const quarterlyPrice = parseFloat(priceTag.dataset.quarterly.split('/')[0]);
+                const currentPrice = parseFloat(price);
+                
+                const savingsTag = priceTag.querySelector('.savings-tag');
+                const savingsAmount = savingsTag.querySelector('.savings-amount');
+
+                if(period === 'quarterly') {
+                    savingsTag.classList.remove('show');
+                    return;
+                }
+
+                // 计算月均价格
+                const priceCalculator = {
+                    quarterly: (p) => p / 3,
+                    semiannually: (p) => p / 6,
+                    annually: (p) => p / 12
+                };
+
+                const monthlyPrice = priceCalculator[period](currentPrice);
+                const quarterlyMonthly = priceCalculator.quarterly(quarterlyPrice);
+                const savings = quarterlyMonthly - monthlyPrice;
+
+                if(savings > 0) {
+                    savingsAmount.textContent = ` $${savings.toFixed(1)} / 每月`;
+                    savingsTag.classList.add('show');
+                } else {
+                    savingsTag.classList.remove('show');
+                }
             });
         }
-
         // 动态高亮最佳选择
         document.querySelectorAll('.vip-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
