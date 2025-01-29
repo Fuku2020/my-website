@@ -8,94 +8,93 @@
     // 加载指标数据
     async function loadIndicators() {
         try {
-            const response = await fetch('card.json'); // 修改为 card.json
+            const response = await fetch('card.json');
             indicators = await response.json();
-            renderIndicators();
+            
+            // 判断当前页面类型
+            if (isIndicatorPage()) {
+                renderAllIndicators(); // 指标大全页面：渲染全部
+            } else {
+                initHomePage(); // 首页：初始化搜索和分类
+                renderIndicators();
+            }
         } catch (error) {
-            console.error('数据加载失败:', error);
-            alert('指标数据加载失败，请稍后重试！');
+            handleLoadError(error);
         }
     }
 
-    // 渲染指标卡片
-    function renderIndicators(filter = 'all') {
-        const container = document.getElementById('indicatorContainer');
-        container.innerHTML = '';
+    // 判断是否是指标大全页面
+    function isIndicatorPage() {
+        return window.location.pathname.includes('indicators.html');
+    }
 
-        indicators.forEach(indicator => {
-            if (filter !== 'all' && !indicator.category.includes(filter)) return;
+    // 首页初始化逻辑
+    function initHomePage() {
+        // 绑定搜索事件
+        document.querySelector('.search-box').addEventListener('input', (e) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                const filtered = indicators.filter(indicator => 
+                    indicator.name.toLowerCase().includes(searchTerm) ||
+                    indicator.description.toLowerCase().includes(searchTerm)
+                );
+                renderIndicatorsBySearch(filtered);
+            }, 300);
+        });
 
-            const card = document.createElement('div');
-            card.className = 'indicator-card';
-            card.innerHTML = `
-                <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                     class="indicator-thumbnail" loading="lazy">
-                <h3>${indicator.name}</h3>
-                <p>${indicator.description}</p>
-                <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
-            `;
-            container.appendChild(card);
+        // 绑定分类事件
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderIndicators(btn.dataset.category);
+            });
         });
     }
 
-    // 在新窗口打开详情页面
-    function showDetailInNewWindow(id) {
-        const indicator = indicators.find(i => i.id === id);
-        if (!indicator) return alert("未找到该指标！");
-
-        // 创建新窗口的 URL
-        const detailUrl = `detail.html?id=${id}`;
-        window.open(detailUrl, '_blank');
+    // 渲染所有指标（无过滤）
+    function renderAllIndicators() {
+        const container = document.getElementById('indicatorContainer');
+        container.innerHTML = '';
+        indicators.forEach(indicator => {
+            container.appendChild(createCardElement(indicator));
+        });
     }
 
-    // 绑定事件：点击卡片按钮
-    document.getElementById('indicatorContainer').addEventListener('click', (e) => {
+    // 通用卡片渲染逻辑
+    function createCardElement(indicator) {
+        const card = document.createElement('div');
+        card.className = 'indicator-card';
+        card.innerHTML = `
+            <img src="${indicator.image}" alt="${indicator.name}缩略图" 
+                 class="indicator-thumbnail" loading="lazy">
+            <h3>${indicator.name}</h3>
+            <p>${indicator.description}</p>
+            <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
+        `;
+        return card;
+    }
+
+    // 详情页跳转（统一处理）
+    document.addEventListener('click', (e) => {
         if (e.target.classList.contains('detail-btn')) {
             const id = parseInt(e.target.dataset.id);
-            showDetailInNewWindow(id); // 调用新窗口打开函数
+            const indicator = indicators.find(i => i.id === id);
+            if (indicator) {
+                window.open(`detail.html?id=${id}`, '_blank');
+            } else {
+                alert("未找到该指标！");
+            }
         }
     });
 
-    // 绑定事件：分类按钮点击
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderIndicators(btn.dataset.category);
-        });
-    });
-
-    // 绑定事件：搜索框输入
-    document.querySelector('.search-box').addEventListener('input', (e) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            const searchTerm = e.target.value.toLowerCase().trim();
-            const filtered = indicators.filter(indicator => 
-                indicator.name.toLowerCase().includes(searchTerm) ||
-                indicator.description.toLowerCase().includes(searchTerm)
-            );
-            renderIndicatorsBySearch(filtered);
-        }, 300);
-    });
-
-    // 渲染搜索结果
-    function renderIndicatorsBySearch(filtered) {
-        const container = document.getElementById('indicatorContainer');
-        container.innerHTML = '';
-        filtered.forEach(indicator => {
-            const card = document.createElement('div');
-            card.className = 'indicator-card';
-            card.innerHTML = `
-                <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                     class="indicator-thumbnail" loading="lazy">
-                <h3>${indicator.name}</h3>
-                <p>${indicator.description}</p>
-                <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
-            `;
-            container.appendChild(card);
-        });
+    // 错误处理
+    function handleLoadError(error) {
+        console.error('数据加载失败:', error);
+        alert('数据加载失败，请检查网络或文件路径！');
     }
 
-    // 初始化加载数据
+    // 初始化加载
     loadIndicators();
 })();
