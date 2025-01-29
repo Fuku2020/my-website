@@ -85,6 +85,29 @@ body {
     color: var(--text-light);
 }
 
+/* 新增分区导航栏样式 */
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.section-btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: var(--accent-blue);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.section-btn:hover {
+    background: #2980b9;
+}
+
 .indicator-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -156,6 +179,10 @@ body {
     }
 
     .category-nav {
+        flex-direction: column;
+    }
+
+    .section-nav {
         flex-direction: column;
     }
 
