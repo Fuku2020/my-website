@@ -516,3 +516,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 3px 10px var(--shadow-light);
 }
+
+/* 模态框内容 */
+.modal-content {
+    background: hsla(0, 0%, 100%, 0);
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
