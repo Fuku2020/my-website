@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指标详情</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="detailPage">
+            <a href="javascript:void(0)" class="back-btn" onclick="window.close()">↩ 返回列表</a>
+            <div class="indicator-detail">
+                <h2 id="detailTitle"></h2>
+                <img id="detailImage" src="" alt="" class="indicator-thumbnail">
+                <div id="detailContent"></div>
+                <a href="#" id="detailDownload" class="download-btn">立即下载</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 加载指标详情
+        async function loadIndicatorDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            try {
+                const response = await fetch('card.json'); // 加载 card.json
+                const indicators = await response.json();
+                const indicator = indicators.find(i => i.id === parseInt(id));
+
+                if (indicator) {
+                    document.getElementById('detailTitle').textContent = indicator.name;
+                    document.getElementById('detailImage').src = indicator.image;
+                    document.getElementById('detailContent').innerHTML = indicator.content;
+                    document.getElementById('detailDownload').href = indicator.download;
+                } else {
+                    alert("未找到该指标！");
+                }
+            } catch (error) {
+                console.error('数据加载失败:', error);
+                alert('指标数据加载失败，请稍后重试！');
+            }
+        }
+
+        // 初始化加载详情
+        loadIndicatorDetail();
+    </script>
+</body>
+</html>
