@@ -1,12 +1,12 @@
 [
     {
         "id": 1,
-        "name": "布林带通道",
-        "category": ["trend", "volatility"],
-        "description": "经典波动率通道指标，识别上升/下跌/盘整趋势区域",
-        "image": "assets/bollinger.png",
-        "download": "assets/downloads/bollinger.zip",
-        "content": "<h3>使用说明（编号：Yuanshan-Channel-102）</h3><p>1. 价格触及上/下轨时可能出现回调</p><p>2. 上升时触及粉色区域做多；下跌时触及蓝色区域做空</p><p>3. 背景白色为震荡状态</p><h3>*支持*</h3><p>1. 布林带周期自定义</p><p>2. 布林带上/中/下轨道颜色自定义</p><p>3. 布林带背景颜色自定义</p>"
+        "name": "MA指标",
+        "category": ["trend"],
+        "description": "趋势跟踪量指标，识别买卖信号",
+        "image": "assets/ma.png",
+        "download": "assets/downloads/ma.zip",
+        "content": "<h3>编号：Yuanshan-MA-104</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注K线颜色变化</p><p>3.多头趋势回踩做多，空头趋势反弹做空</p><p>&nbsp</p><h3>支持:</h3><p>1. MA/EMA/WMA/SMMA/LWMA/DEMA等</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 2,
@@ -15,15 +15,15 @@
         "description": "趋势跟踪动量指标，识别买卖信号",
         "image": "assets/macd.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
     },
     {
         "id": 3,
-        "name": "MA指标",
-        "category": ["trend"],
-        "description": "趋势跟踪量指标，识别买卖信号",
-        "image": "assets/ma.png",
-        "download": "assets/downloads/ma.zip",
-        "content": "<h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p>"
+        "name": "布林带通道",
+        "category": ["trend", "volatility"],
+        "description": "经典波动率通道指标，识别盘整/趋势状态",
+        "image": "assets/bollinger.png",
+        "download": "assets/downloads/bollinger.zip",
+        "content": "<h3>编号：Yuanshan-Channel-102</h3><h3>使用说明</h3><p>1. 价格触及上/下轨时可能出现回调</p><p>2. 上升时触及粉色区域做多；下跌时触及蓝色区域做空</p><p>3. 背景白色为震荡状态</p><p>&nbsp</p><h3>支持:</h3><p>1. 布林带周期自定义</p><p>2. 布林带上/中/下轨道颜色自定义</p><p>3. 布林带背景颜色自定义</p>"
     }
 ]
