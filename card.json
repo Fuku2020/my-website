@@ -3,10 +3,10 @@
         "id": 1,
         "name": "布林带通道",
         "category": ["trend", "volatility"],
-        "description": "经典波动率通道指标，识别超买超卖区域",
+        "description": "经典波动率通道指标，识别上升/下跌/盘整趋势区域",
         "image": "assets/bollinger.png",
         "download": "assets/downloads/bollinger.zip",
-        "content": "<h3>使用说明</h3><p>1. 价格触及上轨时可能出现回调</p><p>2. 通道收窄预示即将突破</p><p>3. 结合RSI指标确认信号</p>"
+        "content": "<h3>使用说明（编号：Yuanshan-Channel-102）</h3><p>1. 价格触及上/下轨时可能出现回调</p><p>2. 上升时触及粉色区域做多；下跌时触及蓝色区域做空</p><p>3. 背景白色为震荡状态</p><h3>*支持*</h3><p>1. 布林带周期自定义</p><p>2. 布林带上/中/下轨道颜色自定义</p><p>3. 布林带背景颜色自定义</p>"
     },
     {
         "id": 2,
