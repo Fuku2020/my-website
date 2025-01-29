@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -8,11 +9,9 @@
 </head>
 <body>
     <div class="container">
-        <!-- 语义化头部 -->
         <header class="header">
             <h1>Trading·远山资源中心</h1>
             
-            <!-- 优化后的搜索容器 -->
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="搜索指标名称或分类...">
                 <svg class="search-icon" viewBox="0 0 24 24">
@@ -20,7 +19,6 @@
                 </svg>
             </div>
 
-            <!-- 分类导航 -->
             <nav class="category-nav">
                 <button class="category-btn active" data-category="all">全部</button>
                 <button class="category-btn" data-category="trend">趋势指标</button>
@@ -29,12 +27,10 @@
             </nav>
         </header>
 
-        <!-- 主内容区 -->
         <main class="indicator-grid" id="indicatorContainer">
             <!-- 动态生成卡片 -->
         </main>
 
-        <!-- 详情页 -->
         <div id="detailPage" style="display: none;">
             <a href="javascript:void(0)" class="back-btn" onclick="showListPage()">↩ 返回列表</a>
             <div class="indicator-detail">
