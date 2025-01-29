@@ -36,7 +36,7 @@
                      class="indicator-thumbnail" loading="lazy">
                 <h3>${indicator.name}</h3>
                 <p>${indicator.description}</p>
-                <button data-id="${indicator.id}" class="download-btn">查看详情</button>
+                <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
             `;
             container.appendChild(card);
         });
@@ -71,7 +71,7 @@
 
     // 事件委托处理卡片点击
     document.getElementById('indicatorContainer').addEventListener('click', (e) => {
-        if (e.target.classList.contains('download-btn')) {
+        if (e.target.classList.contains('detail-btn')) {
             const id = parseInt(e.target.dataset.id);
             showDetail(id);
         }
@@ -86,11 +86,11 @@
         });
     });
 
-    // 防抖搜索
+    // 防抖搜索（优化后）
     document.querySelector('.search-box').addEventListener('input', (e) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-            const searchTerm = e.target.value.toLowerCase();
+            const searchTerm = e.target.value.toLowerCase().trim();
             const filtered = indicators.filter(indicator => 
                 indicator.name.toLowerCase().includes(searchTerm) ||
                 indicator.description.toLowerCase().includes(searchTerm)
@@ -108,4 +108,19 @@
             card.innerHTML = `
                 <img src="${indicator.image}" alt="${indicator.name}缩略图" 
                      class="indicator-thumbnail" loading="lazy">
-                <h3>${indicator
+                <h3>${indicator.name}</h3>
+                <p>${indicator.description}</p>
+                <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // 浏览器后退处理
+    window.addEventListener('popstate', (e) => {
+        if (e.state?.page === 'detail') showListPage();
+    });
+
+    // 初始化加载
+    loadIndicators();
+})();
