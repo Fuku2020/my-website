@@ -1,0 +1,246 @@
+<!-- vip.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP会员中心 - 远山交易</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 新增返回按钮样式 */
+        .back-home {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            padding: 10px 20px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-home svg {
+            width: 16px;
+            height: 16px;
+            fill: white;
+        }
+
+        /* VIP页面专属样式 */
+        .vip-tier-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .vip-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #3498db;
+        }
+
+        .vip-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background: #e67e22;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .price-tag {
+            font-size: 2em;
+            color: #2ecc71;
+            margin: 15px 0;
+        }
+
+        .privilege-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .privilege-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .privilege-list li:before {
+            content: "✓";
+            color: #27ae60;
+            margin-right: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            border: 1px solid #eee;
+            text-align: center;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- 返回主页按钮 -->
+    <a href="index.html" class="back-home">
+        <svg viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+        返回主页
+    </a>
+
+    <div class="container">
+        <header class="header">
+            <h1>远山交易VIP会员中心</h1>
+            <p>解锁专业交易工具，提升您的交易优势</p>
+        </header>
+
+        <!-- 会员等级对比 -->
+        <section class="vip-tier-container">
+            <div class="vip-card">
+                <div class="vip-badge">最受欢迎</div>
+                <h2>VVIP会员</h2>
+                <div class="price-tag">$69.9/季</div>
+                <ul class="privilege-list">
+                    <li>所有普通指标</li>
+                    <li>每月5个VIP指标</li>
+                    <li>交易策略库访问权限</li>
+                    <li>专属客服通道</li>
+                    <li>所有商品9折优惠</li>
+                </ul>
+                <button class="section-btn" style="width:100%">立即升级</button>
+            </div>
+
+            <div class="vip-card">
+                <div class="vip-badge">专业之选</div>
+                <h2>SVIP会员</h2>
+                <div class="price-tag">$249.9/年</div>
+                <ul class="privilege-list">
+                    <li>所有普通/VIP指标</li>
+                    <li>每月1个付费指标</li>
+                    <li>高级交易系统访问</li>
+                    <li>专属直播课程</li>
+                    <li>所有商品85折优惠</li>
+                </ul>
+                <button class="section-btn" style="width:100%">立即升级</button>
+            </div>
+
+            <div class="vip-card">
+                <div class="vip-badge">尊享特权</div>
+                <h2>SVIP-PRO</h2>
+                <div class="price-tag">$399.9/年</div>
+                <ul class="privilege-list">
+                    <li>全部指标无限制访问</li>
+                    <li>每月4个付费指标</li>
+                    <li>VIP专属交易系统</li>
+                    <li>1对1导师服务</li>
+                    <li>所有商品8折优惠</li>
+                </ul>
+                <button class="section-btn" style="width:100%">立即升级</button>
+            </div>
+        </section>
+
+        <!-- 详细权益对比表 -->
+        <table class="comparison-table">
+            <tr>
+                <th>特权内容</th>
+                <th>VIP</th>
+                <th>VVIP</th>
+                <th>SVIP</th>
+                <th>SVIP-PRO</th>
+            </tr>
+            <tr>
+                <td>VIP指标数量</td>
+                <td>2个/月</td>
+                <td>5个/月</td>
+                <td>12个/月</td>
+                <td>无限制</td>
+            </tr>
+            <tr>
+                <td>付费指标配额</td>
+                <td>-</td>
+                <td>-</td>
+                <td>1个/月</td>
+                <td>4个/月</td>
+            </tr>
+            <tr>
+                <td>交易系统权限</td>
+                <td>-</td>
+                <td>-</td>
+                <td>高级版</td>
+                <td>专业版</td>
+            </tr>
+            <tr>
+                <td>专属课程</td>
+                <td>视频课程</td>
+                <td>视频课程</td>
+                <td>视频+直播</td>
+                <td>直播+1对1指导</td>
+            </tr>
+            <tr>
+                <td>折扣优惠</td>
+                <td>原价</td>
+                <td>9折</td>
+                <td>85折</td>
+                <td>8折</td>
+            </tr>
+        </table>
+
+        <!-- 会员升级说明 -->
+        <div class="indicator-detail">
+            <h2>升级指南</h2>
+            <div class="privilege-list">
+                <li>VIP会员：联系客服免费开通（限私域用户）</li>
+                <li>在线支付升级：支持支付宝/微信/PayPal</li>
+                <li>企业用户：支持对公转账（联系客服）</li>
+                <li>续费优惠：提前续费享9折优惠</li>
+            </div>
+            <button class="download-btn" onclick="openSection('contact.html')">联系客服</button>
+        </div>
+
+        
+    </div>
+    
+    <script>
+        // 动态高亮最佳选择
+        document.querySelectorAll('.vip-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.02)';
+                card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            });
+        });
+    </script>
+
+    <script>
+        // 与主站统一的窗口打开逻辑
+        function openSection(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
