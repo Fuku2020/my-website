@@ -9,28 +9,45 @@
 <body>
     <div class="container">
         <div id="detailPage">
+            <!-- 返回按钮 -->
             <a href="index.html" class="back-btn">↩ 返回列表</a>
+
+            <!-- 指标详情内容 -->
             <div class="indicator-detail">
+                <!-- 标题 -->
                 <h2 id="detailTitle"></h2>
-                <img id="detailImage" src="" alt="" class="indicator-thumbnail">
-                <div id="detailContent"></div>
+
+                <!-- 图片 -->
+                <div class="image-container">
+                    <img id="detailImage" src="" alt="" class="indicator-thumbnail">
+                </div>
+
+                <!-- 内容描述 -->
+                <div id="detailContent" class="content-container"></div>
+
+                <!-- Bilibili 视频区域 -->
+                <div class="video-container">
+                    <h3>视频教程</h3>
+                    <div id="bilibiliVideo"></div>
+                    
+                <!-- 下载按钮 -->
                 <a href="#" id="detailDownload" class="download-btn">立即下载</a>
+
+                
+                </div>
             </div>
         </div>
     </div>
-    
-        <!-- 挂件和二维码的容器 -->
+
+    <!-- 挂件和二维码的容器 -->
     <div id="floatingWidget">
-        <!-- 默认图标，例如微信卡片 -->
         <img id="widgetIcon" src="image/wechat.png" alt="Widget Icon"/>
-        <!-- 添加的文字 -->
         <div id="widgetText">联系客服</div>
         <div id="qrCode" style="display:none;">
-            <!-- 替换为你的二维码图片路径 -->
             <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
         </div>
     </div>
-    
+
     <script>
         // 加载指标详情
         async function loadIndicatorDetail() {
@@ -47,6 +64,13 @@
                     document.getElementById('detailImage').src = indicator.image;
                     document.getElementById('detailContent').innerHTML = indicator.content;
                     document.getElementById('detailDownload').href = indicator.download;
+
+                    // 显示 Bilibili 视频
+                    if (indicator.bilibili_video) {
+                        document.getElementById('bilibiliVideo').innerHTML = indicator.bilibili_video;
+                    } else {
+                        document.getElementById('bilibiliVideo').innerHTML = "<p>暂无视频教程</p>";
+                    }
                 } else {
                     alert("未找到该指标！");
                 }
@@ -59,36 +83,32 @@
         // 初始化加载详情
         loadIndicatorDetail();
     </script>
-    
-     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 获取挂件和二维码元素
-        var widget = document.getElementById('floatingWidget');
-        var qrCode = document.getElementById('qrCode');
-        var widgetIcon = document.getElementById('widgetIcon');
 
-        if (widget && qrCode) { 
-            // 鼠标进入事件监听器
-            widget.addEventListener('mouseenter', function() {
-                qrCode.style.display = 'block';
-            });
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 挂件和二维码的交互逻辑
+            var widget = document.getElementById('floatingWidget');
+            var qrCode = document.getElementById('qrCode');
+            var widgetIcon = document.getElementById('widgetIcon');
 
-            // 鼠标离开事件监听器
-            widget.addEventListener('mouseleave', function() {
-                qrCode.style.display = 'none';
-            });
-        }
+            if (widget && qrCode) {
+                widget.addEventListener('mouseenter', function () {
+                    qrCode.style.display = 'block';
+                });
 
-        if (widgetIcon) { 
-            // 点击微信图标事件监听器
-            widgetIcon.addEventListener('click', function(event) {
-                event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
-                // 替换为你的二维码图片路径
-                var qrCodeImageUrl = "image/ewm.png";
-                window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
-            });
-        }
-    });
+                widget.addEventListener('mouseleave', function () {
+                    qrCode.style.display = 'none';
+                });
+            }
+
+            if (widgetIcon) {
+                widgetIcon.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    var qrCodeImageUrl = "image/ewm.png";
+                    window.open(qrCodeImageUrl, '_blank');
+                });
+            }
+        });
     </script>
 </body>
 </html>
