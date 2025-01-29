@@ -7,7 +7,7 @@
 
     async function loadIndicators() {
         try {
-            const response = await fetch('indicators.json');
+            const response = await fetch('card.json');
             indicators = await response.json();
             renderIndicators();
         } catch (error) {
