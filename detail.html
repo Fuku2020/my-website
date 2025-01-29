@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div id="detailPage">
-            <a href="javascript:void(0)" class="back-btn" onclick="window.close()">↩ 返回列表</a>
+            <a href="index.html" class="back-btn">↩ 返回列表</a>
             <div class="indicator-detail">
                 <h2 id="detailTitle"></h2>
                 <img id="detailImage" src="" alt="" class="indicator-thumbnail">
@@ -18,8 +18,49 @@
             </div>
         </div>
     </div>
-
+    
+        <!-- 挂件和二维码的容器 -->
+    <div id="floatingWidget">
+        <!-- 默认图标，例如微信卡片 -->
+        <img id="widgetIcon" src="assets/wechat.png" alt="Widget Icon"/>
+        <!-- 添加的文字 -->
+        <div id="widgetText">联系客服</div>
+        <div id="qrCode" style="display:none;">
+            <!-- 替换为你的二维码图片路径 -->
+            <img src="assets/ewm.png" alt="QR Code" class="qr-code-image"/>
+        </div>
+    </div>
+    
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 获取挂件和二维码元素
+            var widget = document.getElementById('floatingWidget');
+            var qrCode = document.getElementById('qrCode');
+            var widgetIcon = document.getElementById('widgetIcon');
+
+            if (widget && qrCode) { 
+                // 鼠标进入事件监听器
+                widget.addEventListener('mouseenter', function() {
+                    qrCode.style.display = 'block';
+                });
+
+                // 鼠标离开事件监听器
+                widget.addEventListener('mouseleave', function() {
+                    qrCode.style.display = 'none';
+                });
+            }
+
+            if (widgetIcon) { 
+                // 点击微信图标事件监听器
+                widgetIcon.addEventListener('click', function(event) {
+                    event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
+                    // 替换为你的二维码图片路径
+                    var qrCodeImageUrl = "assets/ewm.png";
+                    window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
+                });
+            }
+        });
+        
         // 加载指标详情
         async function loadIndicatorDetail() {
             const urlParams = new URLSearchParams(window.location.search);
