@@ -12,7 +12,7 @@
             indicators = await response.json();
             
             // 判断当前页面类型
-            if (isZhibiaoPage()) {
+            if (isIndicatorPage()) {
                 renderAllIndicators(); // 指标大全页面：渲染全部
             } else {
                 initHomePage(); // 首页：初始化搜索和分类
@@ -23,9 +23,9 @@
         }
     }
 
-    // 判断是否是 zhibiao.html 页面
-    function isZhibiaoPage() {
-        return window.location.pathname.includes('zhibiao.html');
+    // 判断是否是指标大全页面
+    function isIndicatorPage() {
+        return window.location.pathname.includes('indicators.html');
     }
 
     // 首页初始化逻辑
