@@ -137,6 +137,15 @@ body {
     background: #ddd;
 }
 
+/* 详情页面图片样式 */
+#detailPage .indicator-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: none; /* 移除最大高度限制 */
+    object-fit: cover; /* 图片铺满容器 */
+    border-radius: 10px;
+}
+
 .detail-btn, .download-btn {
     display: block;
     width: 100%;
