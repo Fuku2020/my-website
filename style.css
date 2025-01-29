@@ -130,20 +130,16 @@ body {
 /* 修改图片样式，确保完整显示 */
 .indicator-thumbnail {
     width: 100%;
-    height: auto; /* 高度自适应 */
-    max-height: 200px; /* 限制最大高度 */
-    object-fit: contain; /* 保持图片比例，完整显示 */
+    height: auto;
+    max-height: 200px;
+    object-fit: cover; /* 保持图片比例，裁剪多余部分 */
     border-radius: 5px;
-    background: #ddd;
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+    transition: transform 0.3s;
 }
 
-/* 详情页面图片样式 */
-#detailPage .indicator-thumbnail {
-    width: 100%;
-    height: auto;
-    max-height: none; /* 移除最大高度限制 */
-    object-fit: cover; /* 图片铺满容器 */
-    border-radius: 10px;
+.indicator-thumbnail:hover {
+    transform: scale(1.05); /* 鼠标悬停时轻微放大 */
 }
 
 .detail-btn, .download-btn {
@@ -210,4 +206,30 @@ body {
         width: 20px;
         height: 20px;
     }
+}
+/* 分页按钮样式 */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination-container button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: var(--accent-blue);
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination-container button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+.pagination-container button:hover:not(:disabled) {
+    background: #2980b9;
 }
