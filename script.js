@@ -7,6 +7,14 @@
     let currentPage = 1; // 当前页码
     const itemsPerPage = 9; // 每页显示的指标数量
 
+    // 广告链接配置（新增）
+    const adLinks = {
+        "vip": "vip.html",      // 春季优惠落地页
+        "ad2": "courses.html",        // 专业课程页面
+        "ad3": "vip.html",            // VIP会员说明页（核心需求）
+        // 可扩展更多广告...
+    };
+
     // 加载指标数据
     async function loadIndicators() {
         try {
@@ -14,9 +22,64 @@
             indicators = await response.json();
             renderIndicators();
             renderPagination(); // 渲染分页按钮
+            initAdSystem(); // 新增广告系统初始化 
+            // 新增广告调整
+            adjustAdBanner();
+            setupAdTracking();
         } catch (error) {
             console.error('数据加载失败:', error);
             alert('指标数据加载失败，请稍后重试！');
+        }
+    }
+
+    // 广告系统初始化（新增）
+    function initAdSystem() {
+        adjustAdBanner();
+        setupAdTracking();
+    }
+
+    // 广告动态调整
+    function adjustAdBanner() {
+        const adItems = document.querySelectorAll('.ad-item');
+        const banner = document.querySelector('.ad-banner');
+        if (adItems.length > 0 && banner) {
+            banner.style.width = `${adItems.length * 100}%`;
+            adItems.forEach(item => {
+                item.style.minWidth = `${100 / adItems.length}%`;
+            });
+        }
+    }
+
+    // 广告点击处理（核心修改）
+    function setupAdTracking() {
+        document.querySelectorAll('.ad-item').forEach(ad => {
+            ad.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // 获取广告标识
+                const img = ad.querySelector('img');
+                const adKey = img.alt.replace(/广告/g, '').trim(); // 从alt提取标识
+                
+                // 获取对应落地页
+                const targetPage = adLinks[adKey.toLowerCase()] || 'default.html';
+                
+                // 执行跳转（新标签页打开）
+                console.log(`广告跳转: ${adKey} -> ${targetPage}`);
+                window.open(targetPage, '_blank');
+                
+                // 可扩展：添加统计代码
+                // trackAdClick(adKey); 
+            });
+        });
+    }
+    
+        // 广告点击统计示例函数
+    function trackAdClick(adName) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'ad_click', {
+                'event_category': 'Advertising',
+                'event_label': adName
+            });
         }
     }
 
