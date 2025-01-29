@@ -1,12 +1,10 @@
+// script.js
 (function () {
     'use strict';
 
     let indicators = [];
     let timeout;
 
-    /**
-     * 加载指标数据
-     */
     async function loadIndicators() {
         try {
             const response = await fetch('indicators.json');
@@ -18,10 +16,6 @@
         }
     }
 
-    /**
-     * 渲染指标卡片列表
-     * @param {string} filter - 分类筛选条件（all/trend/oscillator/volatility）
-     */
     function renderIndicators(filter = 'all') {
         const container = document.getElementById('indicatorContainer');
         container.innerHTML = '';
@@ -42,15 +36,11 @@
         });
     }
 
-    /**
-     * 显示详情页
-     * @param {number} id - 指标ID
-     */
     function showDetail(id) {
         const indicator = indicators.find(i => i.id === id);
         if (!indicator) return alert("未找到该指标！");
 
-        history.pushState({ page: 'detail', id }, '');
+        history.pushState({ page: 'detail', id }, '', `#detail=${id}`);
         document.getElementById('indicatorContainer').style.display = 'none';
         document.getElementById('detailPage').style.display = 'block';
         
@@ -60,16 +50,13 @@
         document.getElementById('detailDownload').href = indicator.download;
     }
 
-    /**
-     * 返回列表页
-     */
     function showListPage() {
         history.back();
-        document.getElementById('indicatorContainer').style.display = 'grid';
-        document.getElementById('detailPage').style.display = 'none';
     }
 
-    // 事件委托处理卡片点击
+    // 暴露到全局
+    window.showListPage = showListPage;
+
     document.getElementById('indicatorContainer').addEventListener('click', (e) => {
         if (e.target.classList.contains('detail-btn')) {
             const id = parseInt(e.target.dataset.id);
@@ -77,7 +64,6 @@
         }
     });
 
-    // 分类筛选
     document.querySelectorAll('.category-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
@@ -86,7 +72,6 @@
         });
     });
 
-    // 防抖搜索（优化后）
     document.querySelector('.search-box').addEventListener('input', (e) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
@@ -116,11 +101,14 @@
         });
     }
 
-    // 浏览器后退处理
     window.addEventListener('popstate', (e) => {
-        if (e.state?.page === 'detail') showListPage();
+        if (e.state?.page === 'detail') {
+            showDetail(e.state.id);
+        } else {
+            document.getElementById('indicatorContainer').style.display = 'grid';
+            document.getElementById('detailPage').style.display = 'none';
+        }
     });
 
-    // 初始化加载
     loadIndicators();
 })();
