@@ -58,35 +58,37 @@
 
         // 初始化加载详情
         loadIndicatorDetail();
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            // 获取挂件和二维码元素
-            var widget = document.getElementById('floatingWidget');
-            var qrCode = document.getElementById('qrCode');
-            var widgetIcon = document.getElementById('widgetIcon');
+    </script>
+    
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 获取挂件和二维码元素
+        var widget = document.getElementById('floatingWidget');
+        var qrCode = document.getElementById('qrCode');
+        var widgetIcon = document.getElementById('widgetIcon');
 
-            if (widget && qrCode) { 
-                // 鼠标进入事件监听器
-                widget.addEventListener('mouseenter', function() {
-                    qrCode.style.display = 'block';
-                });
+        if (widget && qrCode) { 
+            // 鼠标进入事件监听器
+            widget.addEventListener('mouseenter', function() {
+                qrCode.style.display = 'block';
+            });
 
-                // 鼠标离开事件监听器
-                widget.addEventListener('mouseleave', function() {
-                    qrCode.style.display = 'none';
-                });
-            }
+            // 鼠标离开事件监听器
+            widget.addEventListener('mouseleave', function() {
+                qrCode.style.display = 'none';
+            });
+        }
 
-            if (widgetIcon) { 
-                // 点击微信图标事件监听器
-                widgetIcon.addEventListener('click', function(event) {
-                    event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
-                    // 替换为你的二维码图片路径
-                    var qrCodeImageUrl = "assets/ewm.png";
-                    window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
-                });
-            }
-        });
+        if (widgetIcon) { 
+            // 点击微信图标事件监听器
+            widgetIcon.addEventListener('click', function(event) {
+                event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
+                // 替换为你的二维码图片路径
+                var qrCodeImageUrl = "image/ewm.png";
+                window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
+            });
+        }
+    });
     </script>
 </body>
 </html>
