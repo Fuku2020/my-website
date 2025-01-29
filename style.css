@@ -36,6 +36,8 @@ body {
     margin: 20px auto 0;
 }
 
+
+/* 修改搜索框的CSS */
 .search-box {
     width: 100%;
     padding: 12px 45px 12px 20px;
@@ -44,6 +46,8 @@ body {
     font-size: 15px;
     background: var(--text-light);
     transition: all 0.3s;
+    /* 新增修复代码 */
+    box-sizing: border-box; /* 确保边框宽度包含在总宽度内 */
 }
 
 .search-box:focus {
