@@ -71,5 +71,21 @@
             window.open(url, '_blank');
         }
     </script>
+
+    <script>
+        // 打开模态框并显示大图
+        function openModal(imgSrc) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImg");
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        // 关闭模态框
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
 </body>
 </html>
