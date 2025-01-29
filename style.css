@@ -1,3 +1,4 @@
+/* style.css */
 :root {
     --header-bg: #2c3e50;
     --accent-blue: #3498db;
@@ -29,15 +30,12 @@ body {
     text-align: center;
 }
 
-/* 搜索容器优化 */
 .search-container {
     position: relative;
     max-width: 600px;
     margin: 20px auto 0;
 }
 
-
-/* 修改搜索框的CSS */
 .search-box {
     width: 100%;
     padding: 12px 45px 12px 20px;
@@ -46,8 +44,7 @@ body {
     font-size: 15px;
     background: var(--text-light);
     transition: all 0.3s;
-    /* 新增修复代码 */
-    box-sizing: border-box; /* 确保边框宽度包含在总宽度内 */
+    box-sizing: border-box; /* 修复边框溢出 */
 }
 
 .search-box:focus {
@@ -151,7 +148,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* 移动端优化 */
 @media (max-width: 768px) {
     .indicator-grid {
         grid-template-columns: 1fr;
