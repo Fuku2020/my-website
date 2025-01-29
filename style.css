@@ -338,7 +338,7 @@ body {
 #qrCode {
     position: absolute;
     top: -120%; /* 相对于挂件的位置，可能需要根据实际情况调整 */
-    right: 60px; /* 距离挂件的距离 */
+    right: 200px; /* 距离挂件的距离 */
     background-color: white;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
@@ -349,7 +349,7 @@ body {
 /* 当悬停在挂件上时，二维码图片放大 */
 #floatingWidget:hover #qrCode {
     display: block;
-    transform: scale(1.5); /* 放大倍数，可以根据需要调整 */
+    transform: scale(1.1); /* 放大倍数，可以根据需要调整 */
     transition: transform 0.3s ease-in-out; /* 平滑过渡效果 */
 }
 
