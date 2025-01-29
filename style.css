@@ -351,6 +351,26 @@ body {
     transition: transform 0.3s ease-in-out; /* 平滑过渡效果 */
 }
 
+/* 响应式设计：针对较小的屏幕优化二维码显示 */
+@media (max-width: 600px) {
+    #qrCode {
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,.1);
+        z-index: 1000;
+        display: none;
+    }
+
+    .qr-code-image {
+        max-width: 90%;
+        height: auto;
+    }
+}
+
 /* 模态框基础样式 */
 .modal {
     display: none; /* 默认隐藏 */
