@@ -6,7 +6,7 @@
         "description": "均线交叉提示箭头",
         "image": "assets/yuanshan-ma-001.png",
         "download": "assets/downloads/ma.zip",
-        "content": "<h3>编号：Yuanshan-MA-104</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注K线颜色变化</p><p>3.多头趋势回踩做多，空头趋势反弹做空</p><p>&nbsp</p><h3>支持:</h3><p>1. MA/EMA/WMA/SMMA/LWMA/DEMA等</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MA-104</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注K线颜色变化</p><p>3.多头趋势回踩做多，空头趋势反弹做空</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@
         "description": "均线走强/走弱变色+提示",
         "image": "assets/yuanshan-ma-002.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@
         "description": "均线走强/走弱变色+提示+K线变色",
         "image": "assets/yuanshan-ma-101.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@
         "description": "一阳/阴穿三线提示+变色",
         "image": "assets/yuanshan-ma-102.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "description": "K线在均线之上/之下，K线变色",
         "image": "assets/yuanshan-ma-103.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 6,
@@ -51,7 +51,7 @@
         "description": "快线在慢线之上/之下，K线变色",
         "image": "assets/yuanshan-ma-104.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 7,
@@ -60,7 +60,7 @@
         "description": "飘带，均线之间填充透明色",
         "image": "assets/yuanshan-ma-105.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 8,
@@ -69,7 +69,7 @@
         "description": "趋势带，识别多空强弱",
         "image": "assets/yuanshan-ma-201.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 9,
@@ -78,7 +78,7 @@
         "description": "MACD金叉/死叉在主图显示",
         "image": "assets/yuanshan-macd-001.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 10,
@@ -87,7 +87,7 @@
         "description": "MACD副图指标，支撑仅显示零上/下金/死叉",
         "image": "assets/yuanshan-macd-002.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 11,
@@ -96,7 +96,7 @@
         "description": "MACD顶底背离指标",
         "image": "assets/yuanshan-macd-003.png",
         "download": "assets/downloads/macd.zip",
-        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. MACD周期自定义</p><p>2. K线颜色自定义</p>"
+        "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持:</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
     },
     {
         "id": 12,
