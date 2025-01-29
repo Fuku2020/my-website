@@ -234,3 +234,119 @@ body {
 .pagination-container button:hover:not(:disabled) {
     background: #2980b9;
 }
+/* 详情页图片完整显示 */
+.indicator-detail .indicator-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    object-position: center;
+    cursor: zoom-in;
+}
+
+/* 图片放大查看样式 */
+.image-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.enlarged-image {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+    background: #333 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><style>circle{fill:none;stroke:%23fff;stroke-width:2}</style><circle cx="50" cy="50" r="40"/></svg>') no-repeat center;
+    background-size: 50px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: 100;
+    cursor: pointer;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* 加载动画 */
+.enlarged-image.loading {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="%23fff" stroke-width="8" fill="none"><animate attributeName="stroke-dashoffset" from="0" to="502" dur="2s" repeatCount="indefinite"/><animate attributeName="stroke-dasharray" values="150.6 100.4;1 250;150.6 100.4" dur="2s" repeatCount="indefinite"/></circle></svg>');
+}
+
+@media (max-width: 768px) {
+    .close-btn {
+        top: 15px;
+        right: 20px;
+        font-size: 40px;
+    }
+    
+    .enlarged-image {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+}
+/* 挂件基础样式 */
+#floatingWidget {
+    position: fixed;
+    top: 50%; /* 垂直居中 */
+    right: 20px; /* 距离右边界的距离 */
+    transform: translateY(-50%); /* 精确垂直居中 */
+    width: 64px; /* 设置宽度为64px */
+    height: 64px; /* 设置高度为64px */
+    cursor: pointer;
+    z-index: 1000; /* 确保它在大多数其他内容之上 */
+}
+
+/* 挂件图标样式 */
+#widgetIcon {
+    width: 100%; /* 图标宽度占满容器 */
+    height: 100%; /* 图标高度占满容器 */
+    object-fit: cover; /* 保证图片不失真 */
+}
+
+/* 强制图标尺寸为64x64像素 */
+#floatingWidget #widgetIcon {
+    width: 64px;
+    height: 64px;
+}
+
+/* 二维码显示样式 */
+#qrCode {
+    position: absolute;
+    top: -120%; /* 相对于挂件的位置，可能需要根据实际情况调整 */
+    right: 200px; /* 距离挂件的距离 */
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    z-index: 1000;
+    display: none; /* 默认隐藏 */
+}
+
+/* 当悬停在挂件上时，二维码图片放大 */
+#floatingWidget:hover #qrCode {
+    display: block;
+    transform: scale(1.5); /* 放大倍数，可以根据需要调整 */
+    transition: transform 0.3s ease-in-out; /* 平滑过渡效果 */
+}
