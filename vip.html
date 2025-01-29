@@ -7,6 +7,37 @@
     <title>VIP会员中心 - 远山交易</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 新增付费周期切换样式 */
+        .billing-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
+        /* 添加z-index确保按钮不被覆盖 */
+        z-index: 1;
+        position: relative;
+    }
+
+        .billing-btn {
+            padding: 10px 25px;
+            border-radius: 20px;
+            background: #f0f0f0;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .billing-btn.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+        }
+
+        .price-period {
+            font-size: 0.6em;
+            color: #666;
+        }
+
         /* 新增返回按钮样式 */
         .back-home {
             position: absolute;
@@ -32,8 +63,8 @@
         .vip-tier-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            gap: 20px;
+            margin: 10px 0;
         }
 
         .vip-card {
@@ -126,6 +157,13 @@
         <header class="header">
             <h1>远山交易VIP会员中心</h1>
             <p>解锁专业交易工具，提升您的交易优势</p>
+            
+            <!-- 新增付费周期切换 -->
+            <div class="billing-toggle">
+                <button class="billing-btn active" data-period="quarterly" onclick="changeBillingPeriod('quarterly')">按季付费</button>
+                <button class="billing-btn" data-period="semiannually" onclick="changeBillingPeriod('semiannually')">按半年付费</button>
+                <button class="billing-btn" data-period="annually" onclick="changeBillingPeriod('annually')">按年付费</button>
+            </div>
         </header>
 
         <!-- 会员等级对比 -->
@@ -133,7 +171,12 @@
             <div class="vip-card">
                 <div class="vip-badge">私域专享</div>
                 <h2>VIP会员</h2>
-                <div class="price-tag">终身免费</div>
+                <div class="price-tag" 
+                    data-quarterly="终身免费"
+                    data-semiannually="终身免费"
+                    data-annually="终身免费">
+                    <span class="price-display">终身免费</span>
+                </div>
                 <ul class="privilege-list">
                     <li>所有普通指标</li>
                     <li>每月2个VIP指标</li>
@@ -146,7 +189,13 @@
             <div class="vip-card">
                 <div class="vip-badge">最受欢迎</div>
                 <h2>VVIP会员</h2>
-                <div class="price-tag">$49.9/季</div>
+                <div class="price-tag"
+                    data-quarterly="$49.9/季"
+                    data-semiannually="$89.9/半年"
+                    data-annually="$159.9/年">
+                    <span class="price-display">$49.9</span>
+                    <span class="price-period">/季</span>
+                </div>
                 <ul class="privilege-list">
                     <li>所有普通指标</li>
                     <li>每月5个VIP指标</li>
@@ -160,7 +209,13 @@
             <div class="vip-card">
                 <div class="vip-badge">专业之选</div>
                 <h2>SVIP会员</h2>
-                <div class="price-tag">$89.9/季</div>
+                <div class="price-tag"
+                    data-quarterly="$89.9/季"
+                    data-semiannually="$159.9/半年"
+                    data-annually="$299.9/年">
+                    <span class="price-display">$89.9</span>
+                    <span class="price-period">/季</span>
+                </div>
                 <ul class="privilege-list">
                     <li>每月10个VIP指标</li>
                     <li>每月1个付费指标</li>
@@ -174,7 +229,13 @@
             <div class="vip-card">
                 <div class="vip-badge">尊享特权</div>
                 <h2>SVIP-PRO</h2>
-                <div class="price-tag">$149.9/季</div>
+                <div class="price-tag"
+                    data-quarterly="$149.9/季"
+                    data-semiannually="$269.9/半年"
+                    data-annually="$499.9/年">
+                    <span class="price-display">$149.9</span>
+                    <span class="price-period">/季</span>
+                </div>
                 <ul class="privilege-list">
                     <li>全部指标无限制访问</li>
                     <li>每月4个付费指标</li>
@@ -248,6 +309,31 @@
     </div>
     
     <script>
+        // 新增付费周期切换逻辑
+        function changeBillingPeriod(period) {
+            // 切换按钮状态
+            document.querySelectorAll('.billing-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.period === period) btn.classList.add('active');
+            });
+
+            // 更新所有价格显示
+            document.querySelectorAll('.price-tag').forEach(priceTag => {
+                const priceDisplay = priceTag.querySelector('.price-display');
+                const periodDisplay = priceTag.querySelector('.price-period');
+                const [price, unit] = priceTag.dataset[period].split('/');
+                
+                priceDisplay.textContent = price;
+                if(periodDisplay) periodDisplay.textContent = `/${unit}`;
+            });
+
+            // 更新对比表（需要为表格添加类似的数据属性）
+            document.querySelectorAll('.comparison-table td:nth-child(2)').forEach(td => {
+                // 根据实际数据结构更新对比表价格
+                // 这里需要根据具体表格结构调整更新逻辑
+            });
+        }
+
         // 动态高亮最佳选择
         document.querySelectorAll('.vip-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
