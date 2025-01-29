@@ -318,20 +318,29 @@ body {
     text-align: center; /* 文字居中 */
 }
 
+/* 挂件基础样式 */
+#floatingWidget {
+    position: fixed;
+    top: 50%; /* 垂直居中 */
+    right: 20px; /* 距离右边界的距离 */
+    transform: translateY(-50%); /* 精确垂直居中 */
+    width: 64px; /* 设置宽度为64px */
+    height: 64px; /* 设置高度为64px */
+    cursor: pointer;
+    z-index: 1000; /* 确保它在大多数其他内容之上 */
+}
+
 /* 挂件图标样式 */
 #widgetIcon {
     width: 100%; /* 图标宽度占满容器 */
-    height: auto; /* 自动高度，以保持比例 */
-    max-height: 64px; /* 最大高度为64px */
-    object-fit: contain; /* 保证图片不失真 */
-    display: block; /* 确保没有额外的空间 */
-    margin: 0 auto; /* 水平居中 */
+    height: 100%; /* 图标高度占满容器 */
+    object-fit: cover; /* 保证图片不失真 */
 }
 
-/* 挂件文字样式 */
-#widgetText {
-    font-size: 12px; /* 根据需要调整字体大小 */
-    margin-top: 5px; /* 文字与图标之间的间距 */
+/* 强制图标尺寸为64x64像素 */
+#floatingWidget #widgetIcon {
+    width: 64px;
+    height: 64px;
 }
 
 /* 二维码显示样式 */
