@@ -127,14 +127,15 @@ body {
     transform: translateY(-5px);
 }
 
-/* 修改图片样式，确保完整显示 */
+/* 修改后的图片样式 */
 .indicator-thumbnail {
     width: 100%;
     height: auto;
-    max-height: 200px;
-    object-fit: cover; /* 保持图片比例，裁剪多余部分 */
+    max-height: 500px; /* 适当增加最大高度 */
+    object-fit: contain; /* 替换为contain保持完整比例 */
+    object-position: center; /* 确保图片居中显示 */
     border-radius: 5px;
-    cursor: pointer; /* 鼠标悬停时显示手型 */
+    cursor: pointer;
     transition: transform 0.3s;
 }
 
