@@ -502,3 +502,17 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 添加 Bilibili 视频样式 */
+#bilibiliVideo {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#bilibiliVideo iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px var(--shadow-light);
+}
