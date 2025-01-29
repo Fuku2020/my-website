@@ -28,13 +28,12 @@
                 <!-- Bilibili 视频区域 -->
                 <div class="video-container">
                     <p>&nbsp</p>
-                    <h3>视频教程</h3>
+                    <h3>视频教程<span style="letter-spacing: 1.5px; font-size: 0.65em; color: hsl(0, 0%, 0%);">  （看完记得<span style="font-size: 1em; color: hwb(0 0% 0%);">点赞+投币+收藏</span>）</span></h3>
                     <div id="bilibiliVideo"></div>
 
-                <!-- 下载按钮 -->
-                <a href="#" id="detailDownload" class="download-btn">立即下载</a>
+                <!-- 联系客服按钮 -->
+                <button id="contactBtn" class="download-btn">联系客服</button>
 
-                
                 </div>
             </div>
         </div>
@@ -46,6 +45,14 @@
         <div id="widgetText">联系客服</div>
         <div id="qrCode" style="display:none;">
             <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
+        </div>
+    </div>
+
+    <!-- 弹出图片的模态框 -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="image/ewm.png" alt="客服二维码" class="modal-image">
         </div>
     </div>
 
@@ -64,7 +71,6 @@
                     document.getElementById('detailTitle').textContent = indicator.name;
                     document.getElementById('detailImage').src = indicator.image;
                     document.getElementById('detailContent').innerHTML = indicator.content;
-                    document.getElementById('detailDownload').href = indicator.download;
 
                     // 显示 Bilibili 视频
                     if (indicator.bilibili_video) {
@@ -83,6 +89,28 @@
 
         // 初始化加载详情
         loadIndicatorDetail();
+
+        // 模态框逻辑
+        const modal = document.getElementById('imageModal');
+        const contactBtn = document.getElementById('contactBtn');
+        const closeBtn = document.querySelector('.close');
+
+        // 点击“联系客服”按钮，显示模态框
+        contactBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        // 点击关闭按钮，隐藏模态框
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // 点击模态框外部，隐藏模态框
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     </script>
 
     <script>
