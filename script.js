@@ -20,6 +20,24 @@
         }
     }
 
+    document.addEventListener("DOMContentLoaded", function() {
+        // 获取挂件和二维码元素
+        var widget = document.getElementById('floatingWidget');
+        var qrCode = document.getElementById('qrCode');
+
+        if (widget && qrCode) { // 确保元素存在
+            // 鼠标进入事件监听器
+            widget.addEventListener('mouseenter', function() {
+                qrCode.style.display = 'block';
+            });
+
+            // 鼠标离开事件监听器
+            widget.addEventListener('mouseleave', function() {
+                qrCode.style.display = 'none';
+            });
+        }
+    });
+
     // 渲染指标卡片
     function renderIndicators(filter = 'all') {
         const container = document.getElementById('indicatorContainer');
@@ -155,4 +173,23 @@
 
     // 初始化加载数据
     loadIndicators();
+
+    // 添加以下代码用于处理挂件的鼠标悬停事件
+    document.addEventListener("DOMContentLoaded", function() {
+        // 获取挂件和二维码元素
+        var widget = document.getElementById('floatingWidget');
+        var qrCode = document.getElementById('qrCode');
+
+        if (widget && qrCode) { // 确保元素存在
+            // 鼠标进入事件监听器
+            widget.addEventListener('mouseenter', function() {
+                qrCode.style.display = 'block';
+            });
+
+            // 鼠标离开事件监听器
+            widget.addEventListener('mouseleave', function() {
+                qrCode.style.display = 'none';
+            });
+        }
+    });
 })();
