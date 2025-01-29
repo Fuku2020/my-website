@@ -4,6 +4,8 @@
 
     let indicators = [];
     let timeout;
+    let currentPage = 1; // 当前页码
+    const itemsPerPage = 9; // 每页显示的指标数量
 
     // 加载指标数据
     async function loadIndicators() {
@@ -11,6 +13,7 @@
             const response = await fetch('card.json'); // 修改为 card.json
             indicators = await response.json();
             renderIndicators();
+            renderPagination(); // 渲染分页按钮
         } catch (error) {
             console.error('数据加载失败:', error);
             alert('指标数据加载失败，请稍后重试！');
@@ -22,20 +25,63 @@
         const container = document.getElementById('indicatorContainer');
         container.innerHTML = '';
 
-        indicators.forEach(indicator => {
-            if (filter !== 'all' && !indicator.category.includes(filter)) return;
+        const filteredIndicators = indicators.filter(indicator => {
+            return filter === 'all' || indicator.category.includes(filter);
+        });
 
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedIndicators = filteredIndicators.slice(startIndex, endIndex);
+
+        paginatedIndicators.forEach(indicator => {
             const card = document.createElement('div');
             card.className = 'indicator-card';
             card.innerHTML = `
-                <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                     class="indicator-thumbnail" loading="lazy">
+                <a href="${indicator.image}" data-lightbox="indicator-images" data-title="${indicator.name}">
+                    <img src="${indicator.image}" alt="${indicator.name}缩略图" 
+                         class="indicator-thumbnail" loading="lazy">
+                </a>
                 <h3>${indicator.name}</h3>
                 <p>${indicator.description}</p>
                 <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
             `;
             container.appendChild(card);
         });
+
+        renderPagination(); // 重新渲染分页按钮
+    }
+
+    // 渲染分页按钮
+    function renderPagination() {
+        const paginationContainer = document.getElementById('paginationContainer');
+        if (!paginationContainer) return;
+
+        paginationContainer.innerHTML = '';
+
+        const totalPages = Math.ceil(indicators.length / itemsPerPage);
+
+        const prevButton = document.createElement('button');
+        prevButton.textContent = '上一页';
+        prevButton.disabled = currentPage === 1;
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderIndicators();
+            }
+        });
+
+        const nextButton = document.createElement('button');
+        nextButton.textContent = '下一页';
+        nextButton.disabled = currentPage === totalPages;
+        nextButton.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderIndicators();
+            }
+        });
+
+        paginationContainer.appendChild(prevButton);
+        paginationContainer.appendChild(nextButton);
     }
 
     // 在新窗口打开详情页面
@@ -61,6 +107,7 @@
         btn.addEventListener('click', () => {
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            currentPage = 1; // 重置页码
             renderIndicators(btn.dataset.category);
         });
     });
@@ -74,6 +121,7 @@
                 indicator.name.toLowerCase().includes(searchTerm) ||
                 indicator.description.toLowerCase().includes(searchTerm)
             );
+            currentPage = 1; // 重置页码
             renderIndicatorsBySearch(filtered);
         }, 300);
     });
@@ -82,18 +130,27 @@
     function renderIndicatorsBySearch(filtered) {
         const container = document.getElementById('indicatorContainer');
         container.innerHTML = '';
-        filtered.forEach(indicator => {
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const paginatedIndicators = filtered.slice(startIndex, endIndex);
+
+        paginatedIndicators.forEach(indicator => {
             const card = document.createElement('div');
             card.className = 'indicator-card';
             card.innerHTML = `
-                <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                     class="indicator-thumbnail" loading="lazy">
+                <a href="${indicator.image}" data-lightbox="indicator-images" data-title="${indicator.name}">
+                    <img src="${indicator.image}" alt="${indicator.name}缩略图" 
+                         class="indicator-thumbnail" loading="lazy">
+                </a>
                 <h3>${indicator.name}</h3>
                 <p>${indicator.description}</p>
                 <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
             `;
             container.appendChild(card);
         });
+
+        renderPagination(); // 重新渲染分页按钮
     }
 
     // 初始化加载数据
