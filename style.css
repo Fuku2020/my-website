@@ -4,6 +4,7 @@
     --page-bg: #f8f9fa;
     --text-light: #ffffff;
     --placeholder-gray: #95a5a6;
+    --shadow-light: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -25,19 +26,40 @@ body {
     padding: 2rem;
     border-radius: 10px;
     margin-bottom: 30px;
+    text-align: center;
+}
+
+/* 搜索容器优化 */
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto 0;
 }
 
 .search-box {
     width: 100%;
-    padding: 12px 20px;
-    border-radius: 25px;
+    padding: 12px 45px 12px 20px;
+    border-radius: 28px;
     border: 2px solid var(--accent-blue);
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: 15px;
+    background: var(--text-light);
+    transition: all 0.3s;
 }
 
-.search-box::placeholder {
-    color: var(--placeholder-gray);
+.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-blue);
+    pointer-events: none;
 }
 
 .category-nav {
@@ -45,6 +67,7 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0;
+    justify-content: center;
 }
 
 .category-btn {
@@ -56,4 +79,97 @@ body {
     transition: all 0.3s;
 }
 
-.category
+.category-btn.active {
+    background: var(--accent-blue);
+    color: var(--text-light);
+}
+
+.indicator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.indicator-card {
+    background: var(--text-light);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px var(--shadow-light);
+    transition: transform 0.3s;
+}
+
+.indicator-card:hover {
+    transform: translateY(-5px);
+}
+
+.indicator-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    background: #ddd;
+}
+
+.detail-btn, .download-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--accent-blue);
+    color: var(--text-light);
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.detail-btn:hover, .download-btn:hover {
+    background: #2980b9;
+}
+
+.indicator-detail {
+    background: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--placeholder-gray);
+    color: var(--text-light);
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .indicator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-nav {
+        flex-direction: column;
+    }
+
+    .search-container {
+        max-width: 90%;
+        margin-top: 15px;
+    }
+    
+    .search-box {
+        padding: 10px 40px 10px 15px;
+        font-size: 14px;
+    }
+    
+    .search-icon {
+        right: 12px;
+        width: 20px;
+        height: 20px;
+    }
+}
