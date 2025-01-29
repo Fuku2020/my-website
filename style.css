@@ -390,7 +390,7 @@ body {
     cursor: pointer;
 }
 
-/* 广告容器样式 */
+/* 修改原有广告样式 */
 .ad-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -398,43 +398,56 @@ body {
     border-radius: 8px;
     box-shadow: 0 3px 10px var(--shadow-light);
     background: white;
+    
+    /* 新增响应式容器 */
+    aspect-ratio: 20/3; /* 保持容器比例 */
 }
 
 .ad-banner {
     display: flex;
     animation: scroll 25s linear infinite;
+    height: 100%; /* 继承容器高度 */
 }
 
 .ad-item {
     flex: 1;
     min-width: 33.33%;
-    transition: transform 0.3s;
+    position: relative; /* 新增定位 */
 }
 
 .ad-item img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: 100%; /* 继承父容器高度 */
+    object-fit: cover; /* 保持图片比例 */
+    object-position: center 25%; /* 优化焦点区域 */
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-66.66%); }
-}
-
-.ad-banner:hover {
-    animation-play-state: paused;
-}
-
-/* 响应式调整 */
+/* 移动端适配 */
 @media (max-width: 768px) {
-    .ad-item img {
-        height: 120px;
+    .ad-container {
+        margin: 10px auto;
+        border-radius: 4px;
+        aspect-ratio: 10/3; /* 调整为更适合移动端的比例 */
     }
-    
+
+    .ad-item img {
+        object-fit: contain; /* 移动端显示完整内容 */
+        object-position: center;
+    }
+
     .ad-banner {
         animation-duration: 15s;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .ad-container {
+        aspect-ratio: 5/2; /* 更紧凑的比例 */
+    }
+    
+    .ad-item img {
+        object-position: center 30%; /* 调整焦点区域 */
     }
 }
 
@@ -488,3 +501,4 @@ body {
 .vip-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
