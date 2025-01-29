@@ -27,6 +27,14 @@
             </nav>
         </header>
 
+        <!-- 添加分区导航栏 -->
+        <div class="section-nav">
+            <button class="section-btn" data-section="zhibiao" onclick="openSection('zhibiao.html')">指标大全</button>
+            <button class="section-btn" data-section="strategies" onclick="openSection('strategies.html')">策略大全</button>
+            <button class="section-btn" data-section="learning" onclick="openSection('learning.html')">交易学习</button>
+            <button class="section-btn" data-section="insights" onclick="openSection('insights.html')">今日观点</button>
+        </div>
+
         <main class="indicator-grid" id="indicatorContainer">
             <!-- 动态生成卡片 -->
         </main>
@@ -43,5 +51,11 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // 打开新窗口的函数
+        function openSection(url) {
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
