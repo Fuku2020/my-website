@@ -25,7 +25,7 @@
 
     // 判断是否是指标大全页面
     function isIndicatorPage() {
-        return window.location.pathname.includes('indicators.html');
+        return window.location.pathname.includes('zhibiao.html');
     }
 
     // 首页初始化逻辑
@@ -55,10 +55,10 @@
 
     // 渲染所有指标（无过滤）
     function renderAllIndicators() {
-        const container = document.getElementById('indicatorContainer');
+        const container = document.getElementById('zhibiaoContainer');
         container.innerHTML = '';
         indicators.forEach(indicator => {
-            container.appendChild(createCardElement(indicator));
+            container.appendChild(createCardElement(zhibiao));
         });
     }
 
