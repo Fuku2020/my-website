@@ -22,16 +22,43 @@
         <!-- 挂件和二维码的容器 -->
     <div id="floatingWidget">
         <!-- 默认图标，例如微信卡片 -->
-        <img id="widgetIcon" src="assets/wechat.png" alt="Widget Icon"/>
+        <img id="widgetIcon" src="image/wechat.png" alt="Widget Icon"/>
         <!-- 添加的文字 -->
         <div id="widgetText">联系客服</div>
         <div id="qrCode" style="display:none;">
             <!-- 替换为你的二维码图片路径 -->
-            <img src="assets/ewm.png" alt="QR Code" class="qr-code-image"/>
+            <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
         </div>
     </div>
     
     <script>
+        // 加载指标详情
+        async function loadIndicatorDetail() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            try {
+                const response = await fetch('card.json'); // 加载 card.json
+                const indicators = await response.json();
+                const indicator = indicators.find(i => i.id === parseInt(id));
+
+                if (indicator) {
+                    document.getElementById('detailTitle').textContent = indicator.name;
+                    document.getElementById('detailImage').src = indicator.image;
+                    document.getElementById('detailContent').innerHTML = indicator.content;
+                    document.getElementById('detailDownload').href = indicator.download;
+                } else {
+                    alert("未找到该指标！");
+                }
+            } catch (error) {
+                console.error('数据加载失败:', error);
+                alert('指标数据加载失败，请稍后重试！');
+            }
+        }
+
+        // 初始化加载详情
+        loadIndicatorDetail();
+        
         document.addEventListener("DOMContentLoaded", function() {
             // 获取挂件和二维码元素
             var widget = document.getElementById('floatingWidget');
@@ -60,33 +87,6 @@
                 });
             }
         });
-        
-        // 加载指标详情
-        async function loadIndicatorDetail() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-
-            try {
-                const response = await fetch('card.json'); // 加载 card.json
-                const indicators = await response.json();
-                const indicator = indicators.find(i => i.id === parseInt(id));
-
-                if (indicator) {
-                    document.getElementById('detailTitle').textContent = indicator.name;
-                    document.getElementById('detailImage').src = indicator.image;
-                    document.getElementById('detailContent').innerHTML = indicator.content;
-                    document.getElementById('detailDownload').href = indicator.download;
-                } else {
-                    alert("未找到该指标！");
-                }
-            } catch (error) {
-                console.error('数据加载失败:', error);
-                alert('指标数据加载失败，请稍后重试！');
-            }
-        }
-
-        // 初始化加载详情
-        loadIndicatorDetail();
     </script>
 </body>
 </html>
