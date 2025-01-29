@@ -4,7 +4,7 @@
         "name": "布林带通道",
         "category": ["trend", "volatility"],
         "description": "经典波动率通道指标，识别超买超卖区域",
-        "image": "bollinger.png",
+        "image": "assets/bollinger.png",
         "download": "assets/downloads/bollinger.zip",
         "content": "<h3>使用说明</h3><p>1. 价格触及上轨时可能出现回调</p><p>2. 通道收窄预示即将突破</p><p>3. 结合RSI指标确认信号</p>"
     },
@@ -13,8 +13,17 @@
         "name": "MACD指标",
         "category": ["trend", "oscillator"],
         "description": "趋势跟踪动量指标，识别买卖信号",
-        "image": "macd.png",
+        "image": "assets/macd.png",
         "download": "assets/downloads/macd.zip",
+        "content": "<h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p>"
+    },
+    {
+        "id": 3,
+        "name": "MA指标",
+        "category": ["trend"],
+        "description": "趋势跟踪量指标，识别买卖信号",
+        "image": "assets/ma.png",
+        "download": "assets/downloads/ma.zip",
         "content": "<h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p>"
     }
 ]
