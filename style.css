@@ -389,3 +389,102 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* 广告容器样式 */
+.ad-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--shadow-light);
+    background: white;
+}
+
+.ad-banner {
+    display: flex;
+    animation: scroll 25s linear infinite;
+}
+
+.ad-item {
+    flex: 1;
+    min-width: 33.33%;
+    transition: transform 0.3s;
+}
+
+.ad-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-66.66%); }
+}
+
+.ad-banner:hover {
+    animation-play-state: paused;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .ad-item img {
+        height: 120px;
+    }
+    
+    .ad-banner {
+        animation-duration: 15s;
+    }
+}
+
+/* 新增导航样式 */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* 对比表增强样式 */
+.comparison-table td {
+    vertical-align: middle;
+    position: relative;
+}
+
+.comparison-table td:not(:first-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background: #eee;
+}
+
+.comparison-table tr:hover td {
+    background: #f8f9fa;
+}
+
+/* VIP卡片动画 */
+.vip-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
