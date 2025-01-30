@@ -433,3 +433,101 @@ body {
 .section-btn:hover {
     background: #2980b9;
 }
+
+/* 在style.css中添加 */
+/* 左侧数据悬浮窗 */
+.data-sidebar {
+    position: fixed;
+    left: -300px; /* 默认隐藏 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 80vh;
+    background: white;
+    box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+}
+
+.data-sidebar:hover {
+    left: 0; /* 鼠标悬停展开 */
+}
+
+.jin10-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0 8px 8px 0;
+}
+
+.sidebar-handle {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 100px;
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.1);
+    writing-mode: vertical-rl; /* 竖排文字 */
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .data-sidebar {
+        width: 260px;
+        left: -260px;
+        height: 60vh;
+    }
+    
+    .sidebar-handle {
+        right: -35px;
+        width: 35px;
+        font-size: 14px;
+    }
+    
+    .jin10-iframe {
+        font-size: 12px;
+    }
+}
+
+/* 修改.container的样式 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    /* 移除 margin-left: 20px; */
+}
+
+/* 新增悬浮窗的z-index调整 */
+.data-sidebar {
+    z-index: 998; /* 低于主内容 */
+}
+
+/* 确保主内容不被遮挡 */
+.main-content {
+    position: relative;
+    z-index: 999; /* 高于悬浮窗 */
+}
+
+@media (max-width: 768px) {
+    .data-sidebar {
+        width: 260px;
+        left: -260px;
+        height: 60vh;
+        z-index: 1000; /* 移动端始终置顶 */
+    }
+    
+    .main-content {
+        padding-top: 60px; /* 为移动端悬浮窗留出空间 */
+    }
+}
