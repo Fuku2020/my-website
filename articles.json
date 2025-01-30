@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "title": "黄金突破关键阻力位，多头行情能否持续？",
+        "date": "2023-12-20",
+        "image": "https://picsum.photos/800/400?random=1",
+        "content": "<p>近期黄金价格突破2000美元关键阻力位...</p>",
+        "tags": "贵金属, 技术分析"
+    },
+    {
+        "id": 2,
+        "title": "OPEC+减产协议延期，原油市场走向分析",
+        "date": "2023-12-19",
+        "image": "https://picsum.photos/800/400?random=2",
+        "content": "<p>最新OPEC+会议决定延长减产协议...</p>",
+        "tags": "原油, 基本面"
+    }
+]
