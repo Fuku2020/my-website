@@ -237,6 +237,15 @@
     // 初始化加载数据
     loadIndicators();
     
+    // 确保悬浮窗展开时不影响主内容点击
+    document.querySelector('.data-sidebar').addEventListener('mouseenter', function() {
+        this.style.zIndex = '1000'; // 展开时置顶
+    });
+
+    document.querySelector('.data-sidebar').addEventListener('mouseleave', function() {
+        this.style.zIndex = '998'; // 收起时恢复
+    });
+
     // 添加以下代码用于处理挂件的鼠标悬停事件
     document.addEventListener("DOMContentLoaded", function() {
         // 获取挂件和二维码元素
