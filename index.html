@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,8 +9,19 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Trading·远山资源中心</h1>
-            
+            <div class="top-buttons">
+                <button class="nav-btn vip-btn" onclick="openSection('vip.html')">🌟 VIP特权</button>
+                <button class="nav-btn" onclick="openSection('insights.html')">🔍 今日观点</button>
+                <button class="nav-btn" onclick="openSection('zhibiao.html')">📊 指标大全</button>
+                <button class="nav-btn" onclick="openSection('strategies.html')">📈 策略大全</button>
+                <button class="nav-btn" onclick="openSection('learning.html')">🎓 交易学院</button>
+            </div>
+            <!-- 标题和导航按钮在同一行 -->
+            <div class="header-top">
+                <h1>Trading·远山资源中心</h1>
+            </div>
+
+            <!-- 搜索框和分类导航 -->
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="搜索指标名称或分类...">
                 <svg class="search-icon" viewBox="0 0 24 24">
@@ -31,23 +41,15 @@
         <div class="ad-container">
             <div class="ad-banner">
                 <a href="#" class="ad-item">
-                    <img src="image/vip1.jpg" alt="vip">
+                    <img src="image/vip.png" alt="vip">
                 </a>
                 <a href="#" class="ad-item">
-                    <img src="image/vip2.jpg" alt="vip">
+                    <img src="image/vip.png" alt="vip">
                 </a>
                 <a href="#" class="ad-item">
-                    <img src="image/vip3.jpg" alt="vip">
+                    <img src="image/vip.png" alt="vip">
                 </a>
             </div>
-        </div>
-
-        <!-- 添加分区导航栏 -->
-        <div class="section-nav">
-            <button class="section-btn" data-section="zhibiao" onclick="openSection('zhibiao.html')">指标大全</button>
-            <button class="section-btn" data-section="strategies" onclick="openSection('strategies.html')">策略大全</button>
-            <button class="section-btn" data-section="learning" onclick="openSection('learning.html')">交易学习</button>
-            <button class="section-btn" data-section="insights" onclick="openSection('insights.html')">今日观点</button>
         </div>
 
         <main class="indicator-grid" id="indicatorContainer">
@@ -55,7 +57,7 @@
         </main>
         
         <!-- 添加分页按钮容器 -->
-        <div id="paginationContainer" class="pagination-container"></div>>
+        <div id="paginationContainer" class="pagination-container"></div>
 
         <!-- 挂件和二维码的容器 -->
         <div id="floatingWidget">
@@ -79,35 +81,35 @@
         </div>
     </div>
     
- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // 获取挂件和二维码元素
-        var widget = document.getElementById('floatingWidget');
-        var qrCode = document.getElementById('qrCode');
-        var widgetIcon = document.getElementById('widgetIcon');
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 获取挂件和二维码元素
+            var widget = document.getElementById('floatingWidget');
+            var qrCode = document.getElementById('qrCode');
+            var widgetIcon = document.getElementById('widgetIcon');
 
-        if (widget && qrCode) { 
-            // 鼠标进入事件监听器
-            widget.addEventListener('mouseenter', function() {
-                qrCode.style.display = 'block';
-            });
+            if (widget && qrCode) { 
+                // 鼠标进入事件监听器
+                widget.addEventListener('mouseenter', function() {
+                    qrCode.style.display = 'block';
+                });
 
-            // 鼠标离开事件监听器
-            widget.addEventListener('mouseleave', function() {
-                qrCode.style.display = 'none';
-            });
-        }
+                // 鼠标离开事件监听器
+                widget.addEventListener('mouseleave', function() {
+                    qrCode.style.display = 'none';
+                });
+            }
 
-        if (widgetIcon) { 
-            // 点击微信图标事件监听器
-            widgetIcon.addEventListener('click', function(event) {
-                event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
-                // 替换为你的二维码图片路径
-                var qrCodeImageUrl = "image/ewm.png";
-                window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
-            });
-        }
-    });
+            if (widgetIcon) { 
+                // 点击微信图标事件监听器
+                widgetIcon.addEventListener('click', function(event) {
+                    event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
+                    // 替换为你的二维码图片路径
+                    var qrCodeImageUrl = "image/ewm.png";
+                    window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
+                });
+            }
+        });
     </script>
     <script src="script.js"></script>
     <script>
