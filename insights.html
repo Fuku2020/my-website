@@ -1,23 +1,220 @@
-<!-- insights.html -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>今日观点</title>
+    <title>今日观点 - 远山交易</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-dark: #2c3e50;
+            --text-light: #95a5a6;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .article-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-image {
+            flex: 0 0 300px;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .article-date {
+            color: var(--text-light);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+        }
+
+        .article-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .article-card {
+                flex-direction: column;
+            }
+
+            .article-image {
+                flex: 0 0 200px;
+                width: 100%;
+            }
+
+            .article-content {
+                padding: 20px;
+            }
+
+            .article-title {
+                font-size: 1.3em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-btn">↩ 返回列表</a>
         <header class="header">
-            <h1>今日观点</h1>
+            <div class="top-buttons">
+                <button class="nav-btn vip-btn" onclick="openSection('vip.html')">🌟 VIP特权</button>
+                <button class="nav-btn" onclick="openSection('insights.html')">🔍 今日观点</button>
+                <button class="nav-btn" onclick="openSection('zhibiao.html')">📊 指标大全</button>
+                <button class="nav-btn" onclick="openSection('strategies.html')">📈 策略大全</button>
+                <button class="nav-btn" onclick="openSection('learning.html')">🎓 交易学院</button>
+            </div>
+            <!-- 标题和导航按钮在同一行 -->
+            <div class="header-top">
+                <h1>Trading·远山今日观点</h1>
+            </div>
         </header>
+        
+        <div class="ad-container">
+            <div class="ad-banner">
+                <a href="#" class="ad-item">
+                    <img src="image/vip1.jpg" alt="vip">
+                </a>
+                <a href="#" class="ad-item">
+                    <img src="image/vip2.jpg" alt="vip">
+                </a>
+                <a href="#" class="ad-item">
+                    <img src="image/vip3.jpg" alt="vip">
+                </a>
+            </div>
+        </div>
 
-        <main class="insights-grid" id="insightsContainer">
+        <main class="indicator-grid" id="indicatorContainer">
             <!-- 动态生成卡片 -->
-        </main>
-    </div>
+            </main>
 
-    <script src="script.js"></script>
+        <div class="article-grid">
+            <!-- 示例文章 1 -->
+            <article class="article-card" onclick="window.location.href='article-detail.html?id=1'">
+                <div class="article-image">
+                    <img src="https://picsum.photos/300/200?random=1" alt="市场分析">
+                </div>
+                <div class="article-content">
+                    <div>
+                        <div class="article-date">2023-12-20</div>
+                        <h2 class="article-title">黄金突破关键阻力位，多头行情能否持续？</h2>
+                        <p class="article-excerpt">
+                            近期黄金价格突破2000美元关键阻力位，创下历史新高。本文从美联储政策、地缘政治局势和技术面三个维度分析后续走势...
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 示例文章 2 -->
+            <article class="article-card" onclick="window.location.href='article-detail.html?id=2'">
+                <div class="article-image">
+                    <img src="https://picsum.photos/300/200?random=2" alt="原油走势">
+                </div>
+                <div class="article-content">
+                    <div>
+                        <div class="article-date">2023-12-19</div>
+                        <h2 class="article-title">OPEC+减产协议延期，原油市场走向分析</h2>
+                        <p class="article-excerpt">
+                            最新OPEC+会议决定延长减产协议至2024年第一季度，本文结合库存数据、需求预期和技术图表解读油价后续波动空间...
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 示例文章 3 -->
+            <article class="article-card" onclick="window.location.href='article-detail.html?id=3'">
+                <div class="article-image">
+                    <img src="https://picsum.photos/300/200?random=3" alt="外汇市场">
+                </div>
+                <div class="article-content">
+                    <div>
+                        <div class="article-date">2023-12-18</div>
+                        <h2 class="article-title">美元指数承压回落，非美货币迎来反弹窗口</h2>
+                        <p class="article-excerpt">
+                            美联储释放鸽派信号导致美元指数跌破关键支撑，欧元、英镑等主要货币对技术面出现做多机会，本文详解各货币对操作策略...
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
 </body>
 </html>
