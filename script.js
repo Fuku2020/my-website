@@ -236,7 +236,7 @@
 
     // 初始化加载数据
     loadIndicators();
-
+    
     // 添加以下代码用于处理挂件的鼠标悬停事件
     document.addEventListener("DOMContentLoaded", function() {
         // 获取挂件和二维码元素
