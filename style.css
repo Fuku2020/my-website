@@ -518,16 +518,3 @@ body {
     position: relative;
     z-index: 999; /* 高于悬浮窗 */
 }
-
-@media (max-width: 768px) {
-    .data-sidebar {
-        width: 260px;
-        left: -260px;
-        height: 60vh;
-        z-index: 1000; /* 移动端始终置顶 */
-    }
-    
-    .main-content {
-        padding-top: 60px; /* 为移动端悬浮窗留出空间 */
-    }
-}
