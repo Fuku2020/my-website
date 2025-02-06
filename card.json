@@ -107,5 +107,248 @@
         "image": "assets/yuanshan-macd-101.png",
         "download": "assets/downloads/bollinger.zip",
         "content": "<h3>编号：Yuanshan-Channel-102</h3><h3>使用说明</h3><p>1. 价格触及上/下轨时可能出现回调</p><p>2. 上升时触及粉色区域做多；下跌时触及蓝色区域做空</p><p>3. 背景白色为震荡状态</p><p>&nbsp</p><h3>支持</h3><p>1. 布林带周期自定义</p><p>2. 布林带上/中/下轨道颜色自定义</p><p>3. 布林带背景颜色自定义</p>"
+    },
+    {
+        "id": 13,
+        "name": "Yuanshan-SAR-101",
+        "category": ["trend"],
+        "description": "转向箭头+K线变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 14,
+        "name": "Yuanshan-SAR-201",
+        "category": ["trend"],
+        "description": "大中小周期共振箭头",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 15,
+        "name": "Yuanshan-Channel-001",
+        "category": ["volatility"],
+        "description": "布林带轨道变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 16,
+        "name": "Yuanshan-Channel-002",
+        "category": ["volatility"],
+        "description": "布林带扩大提示，用短期ATR和长期ATR的比值来确定",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 17,
+        "name": "Yuanshan-Channel-003",
+        "category": ["volatility"],
+        "description": "EMA变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 18,
+        "name": "Yuanshan-Channel-101",
+        "category": ["volatility"],
+        "description": "布林带上轨之上，K线变色、下轨之下变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 19,
+        "name": "Yuanshan-Channel-102",
+        "category": ["volatility"],
+        "description": "布林带上升/下降，填充颜色，上升填充下轨，下降填充上轨，震荡白色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 20,
+        "name": "Yuanshan-Channel-103",
+        "category": ["volatility"],
+        "description": "布林带上轨之上，K线变色、下轨之下变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 21,
+        "name": "Yuanshan-Channel-104",
+        "category": ["volatility"],
+        "description": "EMA通道上轨之上，K线变色、下轨之下变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 22,
+        "name": "Yuanshan-Channel-105",
+        "category": ["volatility"],
+        "description": "EMA通道上升/下降，填充颜色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 23,
+        "name": "Yuanshan-Channel-106",
+        "category": ["volatility"],
+        "description": "EMA通道上升/下降，填充颜色，震荡白色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 24,
+        "name": "Yuanshan-Channel-201",
+        "category": ["volatility"],
+        "description": "布林带上轨出现顶分型，背景变色，下轨底分型背景变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 25,
+        "name": "Yuanshan-Channel-202",
+        "category": ["volatility"],
+        "description": "EMA上轨出现顶分型，背景变色，下轨底分型背景变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 26,
+        "name": "Yuanshan-Stop-101",
+        "category": ["trend"],
+        "description": "唐奇安通道+K线变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 27,
+        "name": "Yuanshan-Stop-102",
+        "category": ["trend"],
+        "description": "唐奇安通道+填充颜色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 28,
+        "name": "Yuanshan-Stop-103",
+        "category": ["trend"],
+        "description": "Supertrend+变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 29,
+        "name": "Yuanshan-Stop-104",
+        "category": ["trend"],
+        "description": "Supertrend+填充颜色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 30,
+        "name": "Yuanshan-KDJ-001",
+        "category": ["oscillator"],
+        "description": "交叉在副图和主图同时显示图标，可设置是否零下金叉/零上金叉才出现提示（主图）",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 31,
+        "name": "Yuanshan-KDJ-002",
+        "category": ["oscillator"],
+        "description": "交叉在副图和主图同时显示图标，可设置是否零下金叉/零上金叉才出现提示（副图）",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 32,
+        "name": "Yuanshan-KDJ-101",
+        "category": ["oscillator"],
+        "description": "快线在慢线之上/下，K线变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 33,
+        "name": "Yuanshan-KDJ-102",
+        "category": ["oscillator"],
+        "description": "在数值之上/下，K线变色，提示超买超卖",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 34,
+        "name": "Yuanshan-RSI-001",
+        "category": ["oscillator"],
+        "description": "交叉信号",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 35,
+        "name": "Yuanshan-RSI-101",
+        "category": ["oscillator"],
+        "description": "在数值之上/下，K线变色，提示超买超卖",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 36,
+        "name": "Yuanshan-HL-101",
+        "category": ["trend"],
+        "description": "画线高低点线",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 37,
+        "name": "Yuanshan-HL-102",
+        "category": ["trend"],
+        "description": "高低点之上/下变色",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 38,
+        "name": "Yuanshan-ICT-101",
+        "category": ["trend"],
+        "description": "FVG",
+        "image": "",
+        "download": "",
+        "content": ""
+    },
+    {
+        "id": 40,
+        "name": "Yuanshan-ADM-101",
+        "category": ["volatility"],
+        "description": "波动强弱",
+        "image": "",
+        "download": "",
+        "content": ""
     }
 ]
