@@ -17,24 +17,25 @@
                 <!-- 标题 -->
                 <h2 id="detailTitle"></h2>
 
-                <!-- 图片 -->
+                <!-- 图片容器 -->
                 <div class="image-container">
-                    <img id="detailImage" src="" alt="" class="indicator-thumbnail">
+                    <img id="detailImage" src="" alt="" class="detail-image">
                 </div>
 
                 <!-- 内容描述 -->
                 <div id="detailContent" class="content-container"></div>
 
                 <!-- Bilibili 视频区域 -->
+                <p>&nbsp;</p>
+                <h3>视频教程<span style="letter-spacing: 1.5px; font-size: 0.65em; color: hsl(0, 0%, 0%);">  （看完记得<span style="font-size: 1em; color: hwb(0 0% 0%);">点赞+投币+收藏</span>）</span></h3>
                 <div class="video-container">
-                    <p>&nbsp</p>
-                    <h3>视频教程<span style="letter-spacing: 1.5px; font-size: 0.65em; color: hsl(0, 0%, 0%);">  （看完记得<span style="font-size: 1em; color: hwb(0 0% 0%);">点赞+投币+收藏</span>）</span></h3>
-                    <div id="bilibiliVideo"></div>
+                    <div class="video-wrapper">
+                        <div id="bilibiliVideo"></div>
+                    </div>
+                </div>
 
                 <!-- 联系客服按钮 -->
-                <button id="contactBtn" class="download-btn">联系客服</button>
-
-                </div>
+                <button id="contactBtn" class="download-btn" onclick="openModal()">联系客服</button>
             </div>
         </div>
     </div>
@@ -45,14 +46,6 @@
         <div id="widgetText">联系客服</div>
         <div id="qrCode" style="display:none;">
             <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
-        </div>
-    </div>
-
-    <!-- 弹出图片的模态框 -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="image/ewm.png" alt="客服二维码" class="modal-image">
         </div>
     </div>
 
@@ -89,28 +82,6 @@
 
         // 初始化加载详情
         loadIndicatorDetail();
-
-        // 模态框逻辑
-        const modal = document.getElementById('imageModal');
-        const contactBtn = document.getElementById('contactBtn');
-        const closeBtn = document.querySelector('.close');
-
-        // 点击“联系客服”按钮，显示模态框
-        contactBtn.addEventListener('click', () => {
-            modal.style.display = 'block';
-        });
-
-        // 点击关闭按钮，隐藏模态框
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // 点击模态框外部，隐藏模态框
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
     </script>
 
     <script>
