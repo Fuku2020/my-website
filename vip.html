@@ -204,7 +204,7 @@
                     <li>专属客服通道</li>
                     <lo>商品不享受折扣</lo>
                 </ul>
-                <button class="section-btn" style="width:100%">立即升级</button>
+                <button class="section-btn" style="width:100%" onclick="showUpgradeModal()">立即升级</button>
             </div>
             <div class="vip-card">
                 <div class="vip-badge">最受欢迎</div>
@@ -227,7 +227,7 @@
                     <li>专属客服通道</li>
                     <li>所有商品9折优惠</li>
                 </ul>
-                <button class="section-btn" style="width:100%">立即升级</button>
+                <button class="section-btn" style="width:100%" onclick="showUpgradeModal()">立即升级</button>
             </div>
 
             <div class="vip-card">
@@ -251,7 +251,7 @@
                     <li>专属直播课程</li>
                     <li>所有商品85折优惠</li>
                 </ul>
-                <button class="section-btn" style="width:100%">立即升级</button>
+                <button class="section-btn" style="width:100%" onclick="showUpgradeModal()">立即升级</button>
             </div>
 
             <div class="vip-card">
@@ -275,7 +275,7 @@
                     <li>1对1导师服务</li>
                     <li>所有商品8折优惠</li>
                 </ul>
-                <button class="section-btn" style="width:100%">立即升级</button>
+                <button class="section-btn" style="width:100%" onclick="showUpgradeModal()">立即升级</button>
             </div>
         </section>
 
@@ -336,7 +336,19 @@
             <button class="download-btn" onclick="openSection('contact.html')">联系客服</button>
         </div>
 
-        
+        <!-- 在 container div 内添加提示框 -->
+        <div id="upgradeModal" class="modal">
+            <div class="modal-content upgrade-modal">
+                <span class="close">&times;</span>
+                <h3 class="modal-title">添加提示：</h3>
+                <div class="upgrade-info">
+                    <p>添加客服微信：K1362918898，即可成为私域会员，每月免费使用2个指标；</p>
+                    <p>周一至周五的9-18点内，客服会在20分钟内通过您的添加，并给您添加权限；</p>
+                    <p>工作日的非工作时间，客服会在2小时内通过您的添加；</p>
+                    <p>周末以及节假日，客服会在12小时内通过您的添加。</p>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -411,6 +423,24 @@
         // 与主站统一的窗口打开逻辑
         function openSection(url) {
             window.open(url, '_blank');
+        }
+
+        // 显示升级提示框
+        function showUpgradeModal() {
+            document.getElementById('upgradeModal').style.display = 'block';
+        }
+
+        // 关闭按钮事件
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('upgradeModal').style.display = 'none';
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('upgradeModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         }
     </script>
 </body>
