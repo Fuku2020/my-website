@@ -5,7 +5,7 @@
     let indicators = [];
     let timeout;
     let currentPage = 1; // 当前页码
-    const itemsPerPage = 9; // 每页显示的指标数量
+    const itemsPerPage = 12; // 每页显示的指标数量
 
     // 广告链接配置（新增）
     const adLinks = {
@@ -83,24 +83,6 @@
         }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // 获取挂件和二维码元素
-        var widget = document.getElementById('floatingWidget');
-        var qrCode = document.getElementById('qrCode');
-
-        if (widget && qrCode) { // 确保元素存在
-            // 鼠标进入事件监听器
-            widget.addEventListener('mouseenter', function() {
-                qrCode.style.display = 'block';
-            });
-
-            // 鼠标离开事件监听器
-            widget.addEventListener('mouseleave', function() {
-                qrCode.style.display = 'none';
-            });
-        }
-    });
-
     // 渲染指标卡片
     function renderIndicators(filter = 'all') {
         const container = document.getElementById('indicatorContainer');
@@ -118,10 +100,11 @@
             const card = document.createElement('div');
             card.className = 'indicator-card';
             card.innerHTML = `
-                <a href="${indicator.image}" data-lightbox="indicator-images" data-title="${indicator.name}">
-                    <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                         class="indicator-thumbnail" loading="lazy">
-                </a>
+                <img src="${indicator.image || 'image/default.png'}" 
+                     alt="${indicator.name}缩略图" 
+                     class="indicator-thumbnail" 
+                     loading="lazy"
+                     data-id="${indicator.id}">
                 <h3>${indicator.name}</h3>
                 <p>${indicator.description}</p>
                 <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
@@ -129,7 +112,7 @@
             container.appendChild(card);
         });
 
-        renderPagination(); // 重新渲染分页按钮
+        renderPagination();
     }
 
     // 渲染分页按钮
@@ -137,32 +120,109 @@
         const paginationContainer = document.getElementById('paginationContainer');
         if (!paginationContainer) return;
 
-        paginationContainer.innerHTML = '';
-
         const totalPages = Math.ceil(indicators.length / itemsPerPage);
+        let paginationHTML = `
+            <button class="page-btn prev-btn" ${currentPage === 1 ? 'disabled' : ''}>上一页</button>
+        `;
 
-        const prevButton = document.createElement('button');
-        prevButton.textContent = '上一页';
-        prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                renderIndicators();
+        // 添加页码按钮
+        const maxVisiblePages = 5; // 最多显示5个页码
+        let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+        // 调整startPage，确保显示足够的页码
+        if (endPage - startPage + 1 < maxVisiblePages) {
+            startPage = Math.max(1, endPage - maxVisiblePages + 1);
+        }
+
+        // 添加第一页和省略号
+        if (startPage > 1) {
+            paginationHTML += `<button class="page-btn" data-page="1">1</button>`;
+            if (startPage > 2) {
+                paginationHTML += `<span class="page-ellipsis">...</span>`;
             }
+        }
+
+        // 添加页码按钮
+        for (let i = startPage; i <= endPage; i++) {
+            paginationHTML += `
+                <button class="page-btn ${i === currentPage ? 'active' : ''}" 
+                        data-page="${i}">${i}</button>
+            `;
+        }
+
+        // 添加最后一页和省略号
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                paginationHTML += `<span class="page-ellipsis">...</span>`;
+            }
+            paginationHTML += `<button class="page-btn" data-page="${totalPages}">${totalPages}</button>`;
+        }
+
+        // 添加下一页按钮和跳转输入框
+        paginationHTML += `
+            <button class="page-btn next-btn" ${currentPage === totalPages ? 'disabled' : ''}>下一页</button>
+            <div class="page-jump">
+                <span>跳转到第</span>
+                <input type="number" min="1" max="${totalPages}" class="page-input" value="${currentPage}">
+                <span>页</span>
+                <button class="jump-btn">GO</button>
+            </div>
+        `;
+
+        paginationContainer.innerHTML = paginationHTML;
+
+        // 绑定事件
+        paginationContainer.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('prev-btn')) {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        renderIndicators();
+                    }
+                } else if (btn.classList.contains('next-btn')) {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        renderIndicators();
+                    }
+                } else {
+                    const page = parseInt(btn.dataset.page);
+                    if (page !== currentPage) {
+                        currentPage = page;
+                        renderIndicators();
+                    }
+                }
+            });
         });
 
-        const nextButton = document.createElement('button');
-        nextButton.textContent = '下一页';
-        nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderIndicators();
-            }
-        });
+        // 确保跳转按钮和输入框的事件绑定
+        const jumpBtn = paginationContainer.querySelector('.jump-btn');
+        const pageInput = paginationContainer.querySelector('.page-input');
+        
+        if (jumpBtn && pageInput) {
+            // 跳转按钮点击事件
+            jumpBtn.addEventListener('click', () => {
+                const targetPage = parseInt(pageInput.value);
+                if (targetPage >= 1 && targetPage <= totalPages && targetPage !== currentPage) {
+                    currentPage = targetPage;
+                    renderIndicators();
+                }
+            });
 
-        paginationContainer.appendChild(prevButton);
-        paginationContainer.appendChild(nextButton);
+            // 输入框回车事件
+            pageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    jumpBtn.click();
+                }
+            });
+
+            // 输入框验证
+            pageInput.addEventListener('input', () => {
+                let value = parseInt(pageInput.value);
+                if (value < 1) pageInput.value = 1;
+                if (value > totalPages) pageInput.value = totalPages;
+            });
+        }
     }
 
     // 在新窗口打开详情页面
@@ -175,11 +235,13 @@
         window.open(detailUrl, '_blank');
     }
 
-    // 绑定事件：点击卡片按钮
+    // 修改事件监听，添加图片点击事件
     document.getElementById('indicatorContainer').addEventListener('click', (e) => {
-        if (e.target.classList.contains('detail-btn')) {
-            const id = parseInt(e.target.dataset.id);
-            showDetailInNewWindow(id); // 调用新窗口打开函数
+        const id = parseInt(e.target.dataset.id);
+        if (!id) return;
+
+        if (e.target.classList.contains('indicator-thumbnail') || e.target.classList.contains('detail-btn')) {
+            showDetailInNewWindow(id);
         }
     });
 
@@ -220,10 +282,11 @@
             const card = document.createElement('div');
             card.className = 'indicator-card';
             card.innerHTML = `
-                <a href="${indicator.image}" data-lightbox="indicator-images" data-title="${indicator.name}">
-                    <img src="${indicator.image}" alt="${indicator.name}缩略图" 
-                         class="indicator-thumbnail" loading="lazy">
-                </a>
+                <img src="${indicator.image || 'image/default.png'}" 
+                     alt="${indicator.name}缩略图" 
+                     class="indicator-thumbnail" 
+                     loading="lazy"
+                     data-id="${indicator.id}">
                 <h3>${indicator.name}</h3>
                 <p>${indicator.description}</p>
                 <button data-id="${indicator.id}" class="detail-btn">查看详情</button>
@@ -234,25 +297,27 @@
         renderPagination(); // 重新渲染分页按钮
     }
 
-    // 初始化加载数据
-    loadIndicators();
+    // 添加到 script.js
+    function initFloatingWidget() {
+        const widget = document.getElementById('floatingWidget');
+        const qrCode = document.getElementById('qrCode');
+        const widgetIcon = document.getElementById('widgetIcon');
 
-    // 添加以下代码用于处理挂件的鼠标悬停事件
-    document.addEventListener("DOMContentLoaded", function() {
-        // 获取挂件和二维码元素
-        var widget = document.getElementById('floatingWidget');
-        var qrCode = document.getElementById('qrCode');
+        if (widget && qrCode) {
+            widget.addEventListener('mouseenter', () => qrCode.style.display = 'block');
+            widget.addEventListener('mouseleave', () => qrCode.style.display = 'none');
+        }
 
-        if (widget && qrCode) { // 确保元素存在
-            // 鼠标进入事件监听器
-            widget.addEventListener('mouseenter', function() {
-                qrCode.style.display = 'block';
-            });
-
-            // 鼠标离开事件监听器
-            widget.addEventListener('mouseleave', function() {
-                qrCode.style.display = 'none';
+        if (widgetIcon) {
+            widgetIcon.addEventListener('click', (event) => {
+                event.stopPropagation();
+                window.open("image/ewm.png", '_blank');
             });
         }
-    });
+    }
+
+    document.addEventListener("DOMContentLoaded", initFloatingWidget);
+
+    // 初始化加载数据
+    loadIndicators();
 })();
