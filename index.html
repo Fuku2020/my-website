@@ -112,10 +112,9 @@
             if (widgetIcon) { 
                 // 点击微信图标事件监听器
                 widgetIcon.addEventListener('click', function(event) {
-                    event.stopPropagation(); // 阻止冒泡，避免触发父级元素的鼠标移入事件
-                    // 替换为你的二维码图片路径
+                    event.stopPropagation(); 
                     var qrCodeImageUrl = "image/ewm.png";
-                    window.open(qrCodeImageUrl, '_blank'); // 在新标签页中打开二维码图片
+                    window.open(qrCodeImageUrl, '_blank'); 
                 });
             }
         });
@@ -125,22 +124,6 @@
         // 打开新窗口的函数
         function openSection(url) {
             window.open(url, '_blank');
-        }
-    </script>
-
-    <script>
-        // 打开模态框并显示大图
-        function openModal(imgSrc) {
-            var modal = document.getElementById("imageModal");
-            var modalImg = document.getElementById("modalImg");
-            modal.style.display = "block";
-            modalImg.src = imgSrc;
-        }
-
-        // 关闭模态框
-        function closeModal() {
-            var modal = document.getElementById("imageModal");
-            modal.style.display = "none";
         }
     </script>
 </body>
