@@ -41,11 +41,11 @@
                 <div class="article-content">
                     <div>
                         <div class="article-meta">
-                            <span class="article-date">${article.date}</span>
                             <span class="article-author">
                                 <img src="${article.author.avatar}" alt="${article.author.name}" class="author-avatar">
                                 ${article.author.name}
                             </span>
+                            <span class="article-date">${article.date}</span>
                         </div>
                         <h2 class="article-title">${article.title}</h2>
                         <p class="article-excerpt">${article.sharing ? article.sharing.description : article.content[0].content.replace(/<[^>]*>/g, '').slice(0, 150) + '...'}</p>
