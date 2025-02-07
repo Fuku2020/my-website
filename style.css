@@ -148,6 +148,26 @@ body {
     padding: 30px;
     border-radius: 10px;
     margin-top: 20px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.indicator-detail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 针对详情页缩略图的特殊处理 */
+#detailImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+    display: block;
 }
 
 .back-btn {
@@ -386,6 +406,14 @@ body {
     .indicator-thumbnail {
         height: 160px;
     }
+
+    .indicator-detail {
+        padding: 15px;
+    }
+    
+    .indicator-detail img {
+        margin: 15px auto;
+    }
 }
 
 /* style.css 新增样式 */
@@ -607,33 +635,24 @@ body {
     }
 }
 
-/* 详情页图片容器样式 */
+/* 图片容器样式 */
 .image-container {
     width: 100%;
-    text-align: center;
     margin: 20px 0;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
+    overflow: hidden;
 }
 
 /* 详情页图片样式 */
 .detail-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    object-fit: contain;
-    margin: 0 auto;
     display: block;
 }
 
 /* 移动端适配 */
 @media (max-width: 768px) {
     .image-container {
-        padding: 10px;
-    }
-    
-    .detail-image {
-        width: 100%;
+        margin: 10px 0;
     }
 }
 
