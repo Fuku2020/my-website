@@ -36,7 +36,7 @@
         container.innerHTML = paginatedArticles.map(article => `
             <article class="article-card" onclick="window.location.href='article-detail.html?id=${article.id}'">
                 <div class="article-image">
-                    <img src="${article.image}" alt="${article.title}">
+                    <img src="${article.heroImage}" alt="${article.title}">
                 </div>
                 <div class="article-content">
                     <div>
@@ -48,7 +48,7 @@
                             </span>
                         </div>
                         <h2 class="article-title">${article.title}</h2>
-                        <p class="article-excerpt">${article.excerpt}</p>
+                        <p class="article-excerpt">${article.sharing ? article.sharing.description : article.content[0].content.replace(/<[^>]*>/g, '').slice(0, 150) + '...'}</p>
                         <div class="article-tags">
                             ${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </div>
