@@ -746,3 +746,41 @@ body {
         margin: 12px 0;
     }
 }
+
+/* 文章元信息样式 */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.article-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark);
+}
+
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 文章标签样式 */
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.tag {
+    padding: 4px 8px;
+    background: #f0f2f5;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--text-dark);
+}
