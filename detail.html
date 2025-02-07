@@ -35,7 +35,7 @@
                 </div>
 
                 <!-- 联系客服按钮 -->
-                <button id="contactBtn" class="download-btn" onclick="openModal()">联系客服</button>
+                <button id="contactBtn" class="download-btn" onclick="showContactModal()">联系客服</button>
             </div>
         </div>
     </div>
@@ -46,6 +46,28 @@
         <div id="widgetText">联系客服</div>
         <div id="qrCode" style="display:none;">
             <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
+        </div>
+    </div>
+
+    <!-- 在 container div 内添加模态框 -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content upgrade-modal">
+            <span class="close">&times;</span>
+            <h3 class="modal-title">添加提示：</h3>
+            <div class="upgrade-info">
+                <p>添加客服微信：K1362918898，或扫描下方二维码；</p>
+                <p>即可成为尊贵的远山会员，每月免费使用2个指标；</p>
+                <h4>周一至周五</h4>
+                <p>9-18点内，客服会在20分钟内通过您的添加，联系您发放相应的权限；</p>
+                <p>18-22点内，客服会在60分钟内通过您的添加，联系您发放相应的权限；</p>
+                <p>22点-次日10点，客服会在次日9:30之前通过您的添加，联系您发放相应的权限；</p>
+                <h4>周末及节假日</h4>
+                <p>10-22点内，客服会在12小时内通过您的添加，联系您发放相应的权限；</p>
+                <p>22点-次日10点，客服会在次日12点之前通过您的添加，联系您发放相应的权限。</p>
+                <div class="qr-code-container">
+                    <img src="image/ewm.png" alt="客服二维码">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -104,11 +126,40 @@
             if (widgetIcon) {
                 widgetIcon.addEventListener('click', function (event) {
                     event.stopPropagation();
-                    var qrCodeImageUrl = "image/ewm.png";
-                    window.open(qrCodeImageUrl, '_blank');
+                    showContactModal();
                 });
             }
         });
+
+        // 显示联系客服模态框
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        // 关闭按钮事件
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                this.closest('.modal').style.display = 'none';
+            }
+        });
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // 修改联系客服按钮点击事件
+        document.getElementById('contactBtn').onclick = function() {
+            showContactModal();
+        }
+
+        // 修改悬浮窗点击事件
+        document.getElementById('widgetIcon').onclick = function(event) {
+            event.stopPropagation();
+            showContactModal();
+        }
     </script>
 </body>
 </html>
