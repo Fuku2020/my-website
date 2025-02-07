@@ -91,7 +91,15 @@
         .article-date {
             color: var(--text-light);
             font-size: 0.9em;
-            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .article-date::before {
+            content: "📅";
+            margin-right: 5px;
+            font-size: 14px;
         }
 
         .article-title {
@@ -128,6 +136,19 @@
             .article-title {
                 font-size: 1.3em;
             }
+
+            .article-meta {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .article-author {
+                margin-right: 0;
+            }
+
+            .author-name {
+                margin-right: 10px;
+            }
         }
 
         .ad-container {
@@ -159,29 +180,33 @@
         /* 修改作者头像样式 */
         .article-meta {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            align-items: flex-start;
+            gap: 20px;
             margin-bottom: 10px;
+            flex-wrap: wrap;
         }
 
         .article-author {
             display: flex;
             align-items: center;
-            gap: 12px;  /* 增加头像和名字的间距 */
+            gap: 10px;
             color: var(--text-dark);
+            margin-right: auto;
         }
 
         .author-avatar {
-            width: 36px;  /* 增加头像尺寸 */
+            width: 36px;
             height: 36px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #f0f2f5;  /* 添加边框使头像更突出 */
+            border: 2px solid #f0f2f5;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .author-name {
             font-size: 1em;
             font-weight: 600;
+            margin-right: 15px;
         }
     </style>
 </head>
