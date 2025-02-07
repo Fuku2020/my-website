@@ -3,7 +3,7 @@
         {
             "id": 1,
             "title": "美联储维持利率不变，市场关注鲍威尔讲话",
-            "heroImage": "image/articles/fed-meeting.jpg",
+            "heroImage": "article-image/20250207-1.png",
             "author": {
                 "name": "远山",
                 "avatar": "image/yuanshan.logo.jpg",
@@ -19,14 +19,14 @@
                 },
                 {
                     "type": "image",
-                    "url": "image/articles/fed-dot-plot.jpg",
+                    "url": "article-image/20250207-1.png",
                     "caption": "美联储最新点阵图显示2024年预计降息三次"
                 },
                 {
                     "type": "content-with-image",
                     "layout": "image-right",
                     "image": {
-                        "url": "image/articles/powell-speech.jpg",
+                        "url": "article-image/20250207-1.png",
                         "caption": "美联储主席鲍威尔新闻发布会现场"
                     },
                     "text": "<h2>鲍威尔讲话要点</h2><p>1. 通胀持续回落，但仍需保持警惕</p><p>2. 就业市场保持强劲</p><p>3. 经济软着陆可能性增加</p>"
@@ -36,14 +36,14 @@
             "sharing": {
                 "title": "美联储维持利率不变，鲍威尔释放鸽派信号",
                 "description": "美联储3月FOMC会议维持利率不变，点阵图显示2024年仍有三次降息空间。本文深入分析美联储政策对全球市场的影响...",
-                "image": "image/articles/fed-meeting.jpg",
+                "image": "article-image/20250207-1.png",
                 "tags": ["美联储", "FOMC", "利率决议"]
             }
         },
         {
             "id": 2,
             "title": "黄金突破2200美元，后市如何布局？",
-            "heroImage": "image/articles/gold-price.jpg",
+            "heroImage": "article-image/20250207-1.png",
             "author": {
                 "name": "远山",
                 "avatar": "image/yuanshan.logo.jpg",
@@ -66,7 +66,7 @@
                     "type": "content-with-image",
                     "layout": "image-left",
                     "image": {
-                        "url": "image/articles/gold-analysis.jpg",
+                        "url": "article-image/20250207-1.png",
                         "caption": "黄金价格技术分析"
                     },
                     "text": "<h2>技术面分析</h2><ul><li>阻力位：2300美元</li><li>支撑位：2180美元</li></ul>"
@@ -80,7 +80,7 @@
             "sharing": {
                 "title": "黄金突破2200美元创历史新高，后市如何布局？",
                 "description": "黄金价格持续走强，突破2200美元重要关口，创下历史新高。本文从技术面和基本面分析黄金后市走势，并提供关键支撑位和阻力位参考...",
-                "image": "image/articles/gold-price.jpg",
+                "image": "article-image/20250207-1.png",
                 "tags": ["黄金", "贵金属", "技术分析"]
             }
         }
