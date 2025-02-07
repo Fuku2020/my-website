@@ -45,28 +45,49 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #eef2f7;
+            border-radius: 10px;
+        }
+
+        .author-avatar-container {
+            flex-shrink: 0;
         }
 
         .author-avatar {
-            width: 48px;
-            height: 48px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .author-details {
             display: flex;
             flex-direction: column;
+            gap: 5px;
         }
 
         .author-name {
+            font-size: 1.2em;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #2c3e50;
+            margin: 0;
         }
 
         .author-title {
             font-size: 0.9em;
-            color: var(--text-light);
+            color: #34495e;
+            margin: 0;
+        }
+
+        .author-description {
+            font-size: 0.95em;
+            color: #34495e;
+            margin: 5px 0 0 0;
+            line-height: 1.5;
         }
 
         .article-date {
@@ -203,6 +224,24 @@
             .content-with-image .image-container {
                 width: 100%;
             }
+
+            .author-info {
+                padding: 12px;
+                gap: 12px;
+            }
+
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .author-name {
+                font-size: 1.1em;
+            }
+
+            .author-description {
+                font-size: 0.9em;
+            }
         }
 
         .share-buttons {
@@ -308,10 +347,13 @@
                     <div class="article-meta">
                         <div class="meta-left">
                             <div class="author-info">
-                                <img id="authorAvatar" src="" alt="" class="author-avatar">
+                                <div class="author-avatar-container">
+                                    <img id="authorAvatar" src="" alt="" class="author-avatar">
+                                </div>
                                 <div class="author-details">
-                                    <span id="authorName" class="author-name"></span>
-                                    <span id="authorTitle" class="author-title"></span>
+                                    <h3 id="authorName" class="author-name"></h3>
+                                    <p id="authorTitle" class="author-title"></p>
+                                    <p id="authorDescription" class="author-description"></p>
                                 </div>
                             </div>
                             <time id="articleDate" class="article-date"></time>
@@ -388,6 +430,7 @@
                     document.getElementById('authorAvatar').src = article.author.avatar;
                     document.getElementById('authorName').textContent = article.author.name;
                     document.getElementById('authorTitle').textContent = article.author.title;
+                    document.getElementById('authorDescription').textContent = article.author.description;
                     document.getElementById('articleDate').textContent = article.date;
                     
                     // 设置大图
