@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>今日观点 - 远山交易</title>
+    <title>今日观点 - 远山资源中心</title>
     <link rel="stylesheet" href="style.css">
     <style>
         :root {
@@ -129,11 +129,47 @@
                 font-size: 1.3em;
             }
         }
+
+        .ad-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .ad-banner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .ad-item {
+            flex: 0 0 100%;
+            height: 100%;
+        }
+
+        .ad-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body>
+    <!-- 左侧数据面板 -->
+    <div class="data-sidebar">
+        <div class="sidebar-handle">📈 数据面板</div>
+        <iframe 
+            frameborder="0" 
+            class="jin10-iframe"
+            scrolling="yes" 
+            src="https://www.jin10.com/example/jin10.com.html?fontSize=14px&theme=white">
+        </iframe>
+    </div>
+
     <div class="container">
-        <a href="index.html" class="back-btn">↩ 返回列表</a>
         <header class="header">
             <div class="top-buttons">
                 <button class="nav-btn vip-btn" onclick="openSection('vip.html')">🌟 VIP特权</button>
@@ -142,85 +178,110 @@
                 <button class="nav-btn" onclick="openSection('strategies.html')">📈 策略大全</button>
                 <button class="nav-btn" onclick="openSection('learning.html')">🎓 交易学院</button>
             </div>
-            <!-- 标题和导航按钮在同一行 -->
             <div class="header-top">
                 <h1>Trading·远山今日观点</h1>
             </div>
         </header>
-        
+
+        <!-- 添加返回主页按钮 -->
+        <a href="index.html" class="back-btn">↩ 返回主页</a>
+
+        <!-- 添加分类筛选 -->
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">全部文章</button>
+            <button class="category-btn" data-category="市场分析">市场分析</button>
+            <button class="category-btn" data-category="技术分析">技术分析</button>
+            <button class="category-btn" data-category="宏观经济">宏观经济</button>
+        </div>
+
+        <!-- 文章列表容器 -->
+        <div class="article-grid" id="articleContainer">
+            <!-- 文章将通过 JavaScript 动态加载 -->
+        </div>
+
+        <!-- 分页容器 -->
+        <div id="articlePagination" class="pagination-container">
+            <!-- 分页按钮将通过 JavaScript 动态生成 -->
+        </div>
+
+        <!-- 广告横幅 -->
         <div class="ad-container">
             <div class="ad-banner">
-                <a href="#" class="ad-item">
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
                     <img src="image/vip1.jpg" alt="vip">
                 </a>
-                <a href="#" class="ad-item">
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
                     <img src="image/vip2.jpg" alt="vip">
                 </a>
-                <a href="#" class="ad-item">
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
                     <img src="image/vip3.jpg" alt="vip">
                 </a>
             </div>
         </div>
 
-        <main class="indicator-grid" id="indicatorContainer">
-            <!-- 动态生成卡片 -->
-            </main>
+        <!-- 联系客服浮动挂件 -->
+        <div id="floatingWidget">
+            <img id="widgetIcon" src="image/wechat.png" alt="Widget Icon"/>
+            <div id="widgetText">联系客服</div>
+            <div id="qrCode" style="display:none;">
+                <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
+            </div>
+        </div>
 
-        <div class="article-grid">
-            <!-- 示例文章 1 -->
-            <article class="article-card" onclick="window.location.href='article-detail.html?id=1'">
-                <div class="article-image">
-                    <img src="https://picsum.photos/300/200?random=1" alt="市场分析">
-                </div>
-                <div class="article-content">
-                    <div>
-                        <div class="article-date">2023-12-20</div>
-                        <h2 class="article-title">黄金突破关键阻力位，多头行情能否持续？</h2>
-                        <p class="article-excerpt">
-                            近期黄金价格突破2000美元关键阻力位，创下历史新高。本文从美联储政策、地缘政治局势和技术面三个维度分析后续走势...
-                        </p>
+        <!-- 客服联系模态框 -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content upgrade-modal">
+                <span class="close">&times;</span>
+                <h3 class="modal-title">添加提示：</h3>
+                <div class="upgrade-info">
+                    <p>添加客服微信：K1362918898，或扫描下方二维码；</p>
+                    <p>即可成为尊贵的远山会员，每月免费使用2个指标；</p>
+                    <h4>周一至周五</h4>
+                    <p>9-18点内，客服会在20分钟内通过您的添加，联系您发放相应的权限；</p>
+                    <p>18-22点内，客服会在60分钟内通过您的添加，联系您发放相应的权限；</p>
+                    <p>22点-次日10点，客服会在次日9:30之前通过您的添加，联系您发放相应的权限；</p>
+                    <h4>周末及节假日</h4>
+                    <p>10-22点内，客服会在12小时内通过您的添加，联系您发放相应的权限；</p>
+                    <p>22点-次日10点，客服会在次日12点之前通过您的添加，联系您发放相应的权限。</p>
+                    <div class="qr-code-container">
+                        <img src="image/ewm.png" alt="客服二维码">
                     </div>
                 </div>
-            </article>
-
-            <!-- 示例文章 2 -->
-            <article class="article-card" onclick="window.location.href='article-detail.html?id=2'">
-                <div class="article-image">
-                    <img src="https://picsum.photos/300/200?random=2" alt="原油走势">
-                </div>
-                <div class="article-content">
-                    <div>
-                        <div class="article-date">2023-12-19</div>
-                        <h2 class="article-title">OPEC+减产协议延期，原油市场走向分析</h2>
-                        <p class="article-excerpt">
-                            最新OPEC+会议决定延长减产协议至2024年第一季度，本文结合库存数据、需求预期和技术图表解读油价后续波动空间...
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <!-- 示例文章 3 -->
-            <article class="article-card" onclick="window.location.href='article-detail.html?id=3'">
-                <div class="article-image">
-                    <img src="https://picsum.photos/300/200?random=3" alt="外汇市场">
-                </div>
-                <div class="article-content">
-                    <div>
-                        <div class="article-date">2023-12-18</div>
-                        <h2 class="article-title">美元指数承压回落，非美货币迎来反弹窗口</h2>
-                        <p class="article-excerpt">
-                            美联储释放鸽派信号导致美元指数跌破关键支撑，欧元、英镑等主要货币对技术面出现做多机会，本文详解各货币对操作策略...
-                        </p>
-                    </div>
-                </div>
-            </article>
+            </div>
         </div>
     </div>
 
+    <script src="script.js"></script>
+    <script src="insights.js"></script>
     <script>
         // 打开新窗口的函数
         function openSection(url) {
             window.open(url, '_blank');
+        }
+
+        // 显示联系客服模态框
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        // 关闭按钮事件
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                this.closest('.modal').style.display = 'none';
+            }
+        });
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // 修改联系客服按钮点击事件
+        document.getElementById('widgetIcon').onclick = function(event) {
+            event.stopPropagation();
+            showContactModal();
         }
     </script>
 </body>
