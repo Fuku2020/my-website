@@ -1,18 +1,86 @@
-[
-    {
-        "id": 1,
-        "title": "黄金突破关键阻力位，多头行情能否持续？",
-        "date": "2023-12-20",
-        "image": "https://picsum.photos/800/400?random=1",
-        "content": "<p>近期黄金价格突破2000美元关键阻力位...</p>",
-        "tags": "贵金属, 技术分析"
-    },
-    {
-        "id": 2,
-        "title": "OPEC+减产协议延期，原油市场走向分析",
-        "date": "2023-12-19",
-        "image": "https://picsum.photos/800/400?random=2",
-        "content": "<p>最新OPEC+会议决定延长减产协议...</p>",
-        "tags": "原油, 基本面"
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "美联储维持利率不变，市场关注鲍威尔讲话",
+            "heroImage": "image/articles/fed-meeting.jpg",
+            "author": {
+                "name": "远山分析师",
+                "avatar": "image/avatars/analyst1.jpg",
+                "title": "高级策略分析师",
+                "description": "专注于宏观经济与货币政策分析"
+            },
+            "date": "2024-03-20",
+            "category": "市场分析",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "<h2>美联储3月FOMC会议要点解读</h2><p>美联储在3月议息会议上维持联邦基金利率目标区间在5.25%-5.50%不变，符合市场普遍预期。</p>"
+                },
+                {
+                    "type": "image",
+                    "url": "image/articles/fed-dot-plot.jpg",
+                    "caption": "美联储最新点阵图显示2024年预计降息三次"
+                },
+                {
+                    "type": "content-with-image",
+                    "layout": "image-right",
+                    "image": {
+                        "url": "image/articles/powell-speech.jpg",
+                        "caption": "美联储主席鲍威尔新闻发布会现场"
+                    },
+                    "text": "<h2>鲍威尔讲话要点</h2><p>1. 通胀持续回落，但仍需保持警惕</p><p>2. 就业市场保持强劲</p><p>3. 经济软着陆可能性增加</p>"
+                }
+            ],
+            "tags": ["美联储", "FOMC", "利率决议", "鲍威尔"],
+            "sharing": {
+                "title": "美联储维持利率不变，鲍威尔释放鸽派信号",
+                "description": "美联储3月FOMC会议维持利率不变，点阵图显示2024年仍有三次降息空间。本文深入分析美联储政策对全球市场的影响...",
+                "image": "image/articles/fed-meeting.jpg",
+                "tags": ["美联储", "FOMC", "利率决议"]
+            }
+        },
+        {
+            "id": 2,
+            "title": "黄金突破2200美元，后市如何布局？",
+            "heroImage": "image/articles/gold-price.jpg",
+            "author": {
+                "name": "远山技术",
+                "avatar": "image/avatars/analyst2.jpg",
+                "title": "技术分析专家",
+                "description": "擅长贵金属与大宗商品分析"
+            },
+            "date": "2024-03-19",
+            "category": "技术分析",
+            "content": [
+                {
+                    "type": "text",
+                    "content": "<h2>黄金价格突破历史新高</h2><p>近期黄金价格持续走强，突破2200美元重要关口，创下历史新高。</p>"
+                },
+                {
+                    "type": "image",
+                    "url": "image/articles/gold-chart.jpg",
+                    "caption": "黄金价格突破历史新高走势图"
+                },
+                {
+                    "type": "content-with-image",
+                    "layout": "image-left",
+                    "image": {
+                        "url": "image/articles/gold-analysis.jpg",
+                        "caption": "黄金价格技术分析"
+                    },
+                    "text": "<h2>技术面分析</h2><ul><li>阻力位：2300美元</li><li>支撑位：2180美元</li></ul>"
+                },
+                {
+                    "type": "text",
+                    "content": "<h2>基本面分析</h2><ul><li>地缘政治风险</li><li>美元走势</li><li>通胀预期</li></ul>"
+                }
+            ],
+            "tags": ["黄金", "贵金属", "技术分析"]
+        }
+    ],
+    "metadata": {
+        "lastUpdate": "2024-03-20T10:00:00Z",
+        "totalArticles": 2
     }
-]
+}
