@@ -112,35 +112,6 @@
         </div>
     </div>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // 获取挂件和二维码元素
-            var widget = document.getElementById('floatingWidget');
-            var qrCode = document.getElementById('qrCode');
-            var widgetIcon = document.getElementById('widgetIcon');
-
-            if (widget && qrCode) { 
-                // 鼠标进入事件监听器
-                widget.addEventListener('mouseenter', function() {
-                    qrCode.style.display = 'block';
-                });
-
-                // 鼠标离开事件监听器
-                widget.addEventListener('mouseleave', function() {
-                    qrCode.style.display = 'none';
-                });
-            }
-
-            if (widgetIcon) { 
-                // 点击微信图标事件监听器
-                widgetIcon.addEventListener('click', function(event) {
-                    event.stopPropagation(); 
-                    var qrCodeImageUrl = "image/ewm.png";
-                    window.open(qrCodeImageUrl, '_blank'); 
-                });
-            }
-        });
-    </script>
     <script src="script.js"></script>
     <script>
         // 打开新窗口的函数
@@ -170,11 +141,37 @@
             }
         }
 
-        // 修改联系客服按钮点击事件
-        document.getElementById('widgetIcon').onclick = function(event) {
-            event.stopPropagation();
-            showContactModal();
-        }
+        // 初始化悬浮窗功能
+        document.addEventListener("DOMContentLoaded", function() {
+            const widget = document.getElementById('floatingWidget');
+            const qrCode = document.getElementById('qrCode');
+            const widgetIcon = document.getElementById('widgetIcon');
+
+            if (widget && qrCode) { 
+                // 鼠标进入显示二维码
+                widget.addEventListener('mouseenter', function() {
+                    qrCode.style.display = 'block';
+                });
+
+                // 鼠标离开隐藏二维码
+                widget.addEventListener('mouseleave', function() {
+                    qrCode.style.display = 'none';
+                });
+            }
+
+            // 点击显示模态框
+            if (widgetIcon) {
+                // 移除之前的所有点击事件监听器
+                const newWidgetIcon = widgetIcon.cloneNode(true);
+                widgetIcon.parentNode.replaceChild(newWidgetIcon, widgetIcon);
+                
+                // 添加新的点击事件监听器
+                newWidgetIcon.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    showContactModal();
+                }, false);
+            }
+        });
     </script>
 </body>
 </html>
