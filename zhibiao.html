@@ -39,8 +39,89 @@
 
         <!-- 分页按钮容器 -->
         <div id="paginationContainer" class="pagination-container"></div>
+
+        <!-- 联系客服浮动挂件 -->
+        <div id="floatingWidget">
+            <img id="widgetIcon" src="image/wechat.png" alt="Widget Icon"/>
+            <div id="widgetText">联系客服</div>
+            <div id="qrCode" style="display:none;">
+                <img src="image/ewm.png" alt="QR Code" class="qr-code-image"/>
+            </div>
+        </div>
+
+        <!-- 客服联系模态框 -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content upgrade-modal">
+                <span class="close">&times;</span>
+                <h3 class="modal-title">添加提示：</h3>
+                <div class="upgrade-info">
+                    <p>添加客服微信：K1362918898，或扫描下方二维码；</p>
+                    <p>即可成为尊贵的远山会员，每月免费使用2个指标；</p>
+                    <h4>周一至周五</h4>
+                    <p>9-18点内，客服会在20分钟内通过您的添加，联系您发放相应的权限；</p>
+                    <p>18-22点内，客服会在60分钟内通过您的添加，联系您发放相应的权限；</p>
+                    <p>22点-次日10点，客服会在次日9:30之前通过您的添加，联系您发放相应的权限；</p>
+                    <h4>周末及节假日</h4>
+                    <p>10-22点内，客服会在12小时内通过您的添加，联系您发放相应的权限；</p>
+                    <p>22点-次日10点，客服会在次日12点之前通过您的添加，联系您发放相应的权限。</p>
+                    <div class="qr-code-container">
+                        <img src="image/ewm.png" alt="客服二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="zhibiao.js"></script>
+    <script>
+        // 显示联系客服模态框
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        // 关闭按钮事件
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function() {
+                this.closest('.modal').style.display = 'none';
+            }
+        });
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // 初始化悬浮窗功能
+        document.addEventListener("DOMContentLoaded", function() {
+            const widget = document.getElementById('floatingWidget');
+            const qrCode = document.getElementById('qrCode');
+            const widgetIcon = document.getElementById('widgetIcon');
+
+            if (widget && qrCode) { 
+                // 鼠标进入显示二维码
+                widget.addEventListener('mouseenter', function() {
+                    qrCode.style.display = 'block';
+                });
+
+                // 鼠标离开隐藏二维码
+                widget.addEventListener('mouseleave', function() {
+                    qrCode.style.display = 'none';
+                });
+            }
+
+            // 点击显示模态框
+            if (widgetIcon) {
+                const newWidgetIcon = widgetIcon.cloneNode(true);
+                widgetIcon.parentNode.replaceChild(newWidgetIcon, widgetIcon);
+                
+                newWidgetIcon.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    showContactModal();
+                }, false);
+            }
+        });
+    </script>
 </body>
 </html>
