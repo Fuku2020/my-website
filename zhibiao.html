@@ -8,13 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- 返回按钮 -->
-        <a href="index.html" class="back-btn">↩ 返回主页</a>
+    <!-- 左侧数据面板 -->
+    <div class="data-sidebar">
+        <div class="sidebar-handle">📈 数据面板</div>
+        <iframe 
+            frameborder="0" 
+            class="jin10-iframe"
+            scrolling="yes" 
+            src="https://www.jin10.com/example/jin10.com.html?fontSize=14px&theme=white">
+        </iframe>
+    </div>
 
+    <div class="container">
         <header class="header">
-            <h1>Trading·远山指标大全</h1>
-            
+            <div class="top-buttons">
+                <button class="nav-btn vip-btn" onclick="openSection('vip.html')">🌟 VIP特权</button>
+                <button class="nav-btn" onclick="openSection('insights.html')">🔍 今日观点</button>
+                <button class="nav-btn" onclick="openSection('zhibiao.html')">📊 指标大全</button>
+                <button class="nav-btn" onclick="openSection('strategies.html')">📈 策略大全</button>
+                <button class="nav-btn" onclick="openSection('learning.html')">🎓 交易学院</button>
+            </div>
+            <div class="header-top">
+                <h1>Trading·远山指标大全</h1>
+            </div>
             <!-- 搜索框 -->
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="搜索指标名称或分类...">
@@ -32,6 +48,9 @@
             </nav>
         </header>
 
+        <!-- 返回按钮 -->
+        <a href="index.html" class="back-btn">↩ 返回主页</a>
+
         <!-- 指标卡片容器 -->
         <main class="indicator-grid" id="indicatorContainer">
             <!-- 动态生成卡片 -->
@@ -39,6 +58,21 @@
 
         <!-- 分页按钮容器 -->
         <div id="paginationContainer" class="pagination-container"></div>
+
+        <!-- 广告横幅 -->
+        <div class="ad-container">
+            <div class="ad-banner">
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
+                    <img src="image/vip1.jpg" alt="vip">
+                </a>
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
+                    <img src="image/vip2.jpg" alt="vip">
+                </a>
+                <a href="vip.html" onclick="openSection('vip.html'); return false;" class="ad-item">
+                    <img src="image/vip3.jpg" alt="vip">
+                </a>
+            </div>
+        </div>
 
         <!-- 联系客服浮动挂件 -->
         <div id="floatingWidget">
@@ -72,8 +106,14 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
     <script src="zhibiao.js"></script>
     <script>
+        // 打开新窗口的函数
+        function openSection(url) {
+            window.open(url, '_blank');
+        }
+
         // 显示联系客服模态框
         function showContactModal() {
             document.getElementById('contactModal').style.display = 'block';
