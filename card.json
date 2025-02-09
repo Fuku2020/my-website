@@ -7,7 +7,7 @@
         "image": "assets/yuanshan-ma-001.png",
         "download": "assets/downloads/ma.zip",
         "content": "<h3>编号：Yuanshan-MA-104</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注K线颜色变化</p><p>3.多头趋势回踩做多，空头趋势反弹做空</p><p>&nbsp</p><h3>支持</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>",
-        "bilibili_video": "<iframe src='//player.bilibili.com/player.html?aid=123456789&bvid=BV1Xx411c7mD&cid=123456789&page=1' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe>"
+        "bilibili_video": "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113973819081124&bvid=BV1uoNUeoE4U&cid=28298119231&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>"
     },
     {
         "id": 2,
@@ -17,6 +17,7 @@
         "image": "assets/yuanshan-ma-002.png",
         "download": "assets/downloads/macd.zip",
         "content": "<h3>编号：Yuanshan-MACD-101</h3><h3>使用技巧</h3><p>1. 观察快慢线交叉</p><p>2. 关注柱状图变化</p><p>3. 结合零轴判断趋势方向</p><p>&nbsp</p><h3>支持</h3><p>1. 可选MA/EMA/WMA/VWMA/RAM/HMA等均线计算方式</p><p>2. 均线周期自定义</p><p>3. 均线颜色自定义</p><p>4. K线颜色自定义</p>"
+        "bilibili_video": "<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113973819081124&bvid=BV1uoNUeoE4U&cid=28298119231&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>"
     },
     {
         "id": 3,
